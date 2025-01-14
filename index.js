@@ -5,9 +5,10 @@ const port = 3000
 
 app.use(express.static('public'));
 app.set('view engine', 'ejs');
+var data = "Hello World";
 
 app.get('/', (req, res) => {
-  res.render('index')
+  res.render('index', {data});
 })
 
 app.listen(port, () => {
