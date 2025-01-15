@@ -1,63 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CryptoPulse - Buy & Sell Digital Assets In The CryptoPulse</title>
-
-    <!-- favicon -->
-  <link rel="shortcut icon" href="assets\images\logo.svg" type="image/svg+xml">
-
-    <!--custom css link-->
-  <link rel="stylesheet" href="styles.css">
-
-  <!--google font link-->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CryptoPulse - Buy & Sell Digital Assets In The CryptoPulse</title>
+  <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-
-                    <!-- HEADER -->
-
+  <!-- 
+    - #HEADER
+  -->
   <header class="header" data-header>
     <div class="container">
-
       <a href="#" class="logo">
-        <img src="assets\images\logo.svg" width="32" height="32" alt="CryptoPulse logo">
+        <img src="./assets/images/logo.png" width="32" height="32" alt="CryptoPulse logo">
         CryptoPulse
       </a>
-
       <nav class="navbar" data-navbar>
         <ul class="navbar-list">
-
           <li class="navbar-item">
             <a href="#" class="navbar-link active" data-nav-link>Homepage</a>
           </li>
-
           <li class="navbar-item">
-            <a href="#" class="navbar-link" data-nav-link>Buy Crypto</a>
+            <a href="#" class="navbar-link" data-nav-link>Buy or sell Crypto</a>
           </li>
-
           <li class="navbar-item">
-            <a href="#" class="navbar-link" data-nav-link>Markets</a>
+            <a href="#" class="navbar-link" data-nav-link>About us</a>
           </li>
-
-          <li class="navbar-item">
-            <a href="#" class="navbar-link" data-nav-link>Sell Crypto</a>
-          </li>
-
-          <li class="navbar-item">
-            <a href="#" class="navbar-link" data-nav-link>Blog</a>
-          </li>
-
-          <li class="navbar-item">
-            <a href="#" class="navbar-link" data-nav-link>BITUSDT</a>
-          </li>
-
         </ul>
       </nav>
-
       <button class="nav-toggle-btn" aria-label="Toggle menu" data-nav-toggler>
         <span class="line line-1"></span>
         <span class="line line-2"></span>
@@ -68,11 +41,9 @@
 
     </div>
   </header>
-
-  <main>
+ <main>
     <article>
-
-      <!--HERO-->
+ <!--- #HERO-->
 
       <section class="section hero" aria-label="hero" data-section>
         <div class="container">
@@ -90,166 +61,12 @@
           </div>
 
           <figure class="hero-banner">
-            <img src="assets\images\hero-banner.png" width="570" height="448" alt="hero banner" class="w-100">
+            <img src="./assets/images/hero-banner.png" width="570" height="448" alt="hero banner" class="w-100">
           </figure>
 
         </div>
       </section>
-
-
-
-
-
-      <!--TREND-->
-
-      <section class="section trend" aria-label="crypto trend" data-section>
-        <div class="container">
-
-          <div class="trend-tab">
-
-            <ul class="tab-nav">
-
-              <li>
-                <button class="tab-btn active">Crypto</button>
-              </li>
-
-              <li>
-                <button class="tab-btn">DeFi</button>
-              </li>
-
-              <li>
-                <button class="tab-btn">BSC</button>
-              </li>
-
-              <li>
-                <button class="tab-btn">NFT</button>
-              </li>
-
-              <li>
-                <button class="tab-btn">Metaverse</button>
-              </li>
-
-              <li>
-                <button class="tab-btn">Polkadot</button>
-              </li>
-
-              <li>
-                <button class="tab-btn">Solana</button>
-              </li>
-
-              <li>
-                <button class="tab-btn">Opensea</button>
-              </li>
-
-              <li>
-                <button class="tab-btn">Makersplace</button>
-              </li>
-
-            </ul>
-
-            <ul class="tab-content">
-
-              <li>
-                <div class="trend-card">
-
-                  <div class="card-title-wrapper">
-                    <img src="assets\images\coin-1.svg" width="24" height="24" alt="bitcoin logo">
-
-                    <a href="#" class="card-title">
-                      Bitcoin <span class="span">BTC/USD</span>
-                    </a>
-                  </div>
-
-                  <data class="card-value" value="46168.95">USD 46,168.95</data>
-
-                  <div class="card-analytics">
-                    <data class="current-price" value="36641.20">36,641.20</data>
-
-                    <div class="badge red">-0.79%</div>
-                  </div>
-
-                </div>
-              </li>
-
-              <li>
-                <div class="trend-card active">
-
-                  <div class="card-title-wrapper">
-                    <img src="assets\images\coin-2.svg" width="24" height="24" alt="ethereum logo">
-
-                    <a href="#" class="card-title">
-                      Ethereum <span class="span">ETH/USD</span>
-                    </a>
-                  </div>
-
-                  <data class="card-value" value="3480.04">USD 3,480.04</data>
-
-                  <div class="card-analytics">
-                    <data class="current-price" value="36641.20">36,641.20</data>
-
-                    <div class="badge green">+10.55%</div>
-                  </div>
-
-                </div>
-              </li>
-
-              <li>
-                <div class="trend-card">
-
-                  <div class="card-title-wrapper">
-                    <img src="assets\images\coin-3.svg" width="24" height="24" alt="tether logo">
-
-                    <a href="#" class="card-title">
-                      Tether <span class="span">USDT/USD</span>
-                    </a>
-                  </div>
-
-                  <data class="card-value" value="1.00">USD 1.00</data>
-
-                  <div class="card-analytics">
-                    <data class="current-price" value="36641.20">36,641.20</data>
-
-                    <div class="badge red">-0.01%</div>
-                  </div>
-
-                </div>
-              </li>
-
-              <li>
-                <div class="trend-card">
-
-                  <div class="card-title-wrapper">
-                    <img src="assets\images\coin-4.svg" width="24" height="24" alt="bnb logo">
-
-                    <a href="#" class="card-title">
-                      BNB <span class="span">BNB/USD</span>
-                    </a>
-                  </div>
-
-                  <data class="card-value" value="443.56">USD 443.56</data>
-
-                  <div class="card-analytics">
-                    <data class="current-price" value="36641.20">36,641.20</data>
-
-                    <div class="badge red">-1.24%</div>
-                  </div>
-
-                </div>
-              </li>
-
-            </ul>
-
-          </div>
-
-        </div>
-      </section>
-
-
-
-
-
-      <!--MARKET-->
-
+      <!--- #MARKET -->
       <section class="section market" aria-label="market update" data-section>
         <div class="container">
 
@@ -260,40 +77,7 @@
           </div>
 
           <div class="market-tab">
-
-            <ul class="tab-nav">
-
-              <li>
-                <button class="tab-btn active">View All</button>
-              </li>
-
-              <li>
-                <button class="tab-btn">Metaverse</button>
-              </li>
-
-              <li>
-                <button class="tab-btn">Entertainment</button>
-              </li>
-
-              <li>
-                <button class="tab-btn">Energy</button>
-              </li>
-
-              <li>
-                <button class="tab-btn">NFT</button>
-              </li>
-
-              <li>
-                <button class="tab-btn">Gaming</button>
-              </li>
-
-              <li>
-                <button class="tab-btn">Music</button>
-              </li>
-
-            </ul>
-
-            <table class="market-table">
+             <table class="market-table">
 
               <thead class="table-head">
 
@@ -334,7 +118,7 @@
 
                   <td class="table-data">
                     <div class="wrapper">
-                      <img src="assets\images\coin-1.svg" width="20" height="20" alt="Bitcoin logo" class="img">
+                      <img src="./assets/images/coin-1.svg" width="20" height="20" alt="Bitcoin logo" class="img">
 
                       <h3>
                         <a href="#" class="coin-name">Bitcoin <span class="span">BTC</span></a>
@@ -349,7 +133,7 @@
                   <td class="table-data market-cap">$880,423,640,582</td>
 
                   <td class="table-data">
-                    <img src="assets\images\chart-1.svg" width="100" height="40" alt="profit chart" class="chart">
+                    <img src="./assets/images/chart-1.svg" width="100" height="40" alt="profit chart" class="chart">
                   </td>
 
                   <td class="table-data">
@@ -371,7 +155,7 @@
 
                   <td class="table-data">
                     <div class="wrapper">
-                      <img src="assets\images\coin-2.svg" width="20" height="20" alt="Ethereum logo" class="img">
+                      <img src="./assets/images/coin-2.svg" width="20" height="20" alt="Ethereum logo" class="img">
 
                       <h3>
                         <a href="#" class="coin-name">Ethereum <span class="span">ETH</span></a>
@@ -386,7 +170,7 @@
                   <td class="table-data market-cap">$880,423,640,582</td>
 
                   <td class="table-data">
-                    <img src="assets\images\chart-2.svg" width="100" height="40" alt="loss chart" class="chart">
+                    <img src="./assets/images/chart-2.svg" width="100" height="40" alt="loss chart" class="chart">
                   </td>
 
                   <td class="table-data">
@@ -408,7 +192,7 @@
 
                   <td class="table-data">
                     <div class="wrapper">
-                      <img src="assets\images\coin-3.svg" width="20" height="20" alt="Tether logo" class="img">
+                      <img src="./assets/images/coin-3.svg" width="20" height="20" alt="Tether logo" class="img">
 
                       <h3>
                         <a href="#" class="coin-name">Tether <span class="span">USDT/USD</span></a>
@@ -423,7 +207,7 @@
                   <td class="table-data market-cap">$880,423,640,582</td>
 
                   <td class="table-data">
-                    <img src="assets\images\chart-1.svg" width="100" height="40" alt="profit chart" class="chart">
+                    <img src="./assets/images/chart-1.svg" width="100" height="40" alt="profit chart" class="chart">
                   </td>
 
                   <td class="table-data">
@@ -445,7 +229,7 @@
 
                   <td class="table-data">
                     <div class="wrapper">
-                      <img src="assets\images\coin-4.svg" width="20" height="20" alt="BNB logo" class="img">
+                      <img src="./assets/images/coin-4.svg" width="20" height="20" alt="BNB logo" class="img">
 
                       <h3>
                         <a href="#" class="coin-name">BNB <span class="span">BNB/USD</span></a>
@@ -460,7 +244,7 @@
                   <td class="table-data market-cap">$880,423,640,582</td>
 
                   <td class="table-data">
-                    <img src="assets\images\chart-2.svg" width="100" height="40" alt="loss chart" class="chart">
+                    <img src="./assets/images/chart-2.svg" width="100" height="40" alt="loss chart" class="chart">
                   </td>
 
                   <td class="table-data">
@@ -482,7 +266,7 @@
 
                   <td class="table-data">
                     <div class="wrapper">
-                      <img src="assets\images\coin-5.svg" width="20" height="20" alt="Solana logo" class="img">
+                      <img src="./assets/images/coin-5.svg" width="20" height="20" alt="Solana logo" class="img">
 
                       <h3>
                         <a href="#" class="coin-name">Solana <span class="span">SOL</span></a>
@@ -497,7 +281,7 @@
                   <td class="table-data market-cap">$880,423,640,582</td>
 
                   <td class="table-data">
-                    <img src="assets\images\chart-1.svg" width="100" height="40" alt="profit chart" class="chart">
+                    <img src="./assets/images/chart-1.svg" width="100" height="40" alt="profit chart" class="chart">
                   </td>
 
                   <td class="table-data">
@@ -519,7 +303,7 @@
 
                   <td class="table-data">
                     <div class="wrapper">
-                      <img src="assets\images\coin-6.svg" width="20" height="20" alt="XRP logo" class="img">
+                      <img src="./assets/images/coin-6.svg" width="20" height="20" alt="XRP logo" class="img">
 
                       <h3>
                         <a href="#" class="coin-name">XRP <span class="span">XRP</span></a>
@@ -534,7 +318,7 @@
                   <td class="table-data market-cap">$880,423,640,582</td>
 
                   <td class="table-data">
-                    <img src="assets\images\chart-2.svg" width="100" height="40" alt="loss chart" class="chart">
+                    <img src="./assets/images/chart-2.svg" width="100" height="40" alt="loss chart" class="chart">
                   </td>
 
                   <td class="table-data">
@@ -556,7 +340,7 @@
 
                   <td class="table-data">
                     <div class="wrapper">
-                      <img src="assets\images\coin-7.svg" width="20" height="20" alt="Cardano logo" class="img">
+                      <img src="./assets/images/coin-7.svg" width="20" height="20" alt="Cardano logo" class="img">
 
                       <h3>
                         <a href="#" class="coin-name">Cardano <span class="span">ADA</span></a>
@@ -571,7 +355,7 @@
                   <td class="table-data market-cap">$880,423,640,582</td>
 
                   <td class="table-data">
-                    <img src="assets\images\chart-1.svg" width="100" height="40" alt="profit chart" class="chart">
+                    <img src="./assets/images/chart-1.svg" width="100" height="40" alt="profit chart" class="chart">
                   </td>
 
                   <td class="table-data">
@@ -593,7 +377,7 @@
 
                   <td class="table-data">
                     <div class="wrapper">
-                      <img src="assets\images\coin-8.svg" width="20" height="20" alt="Avalanche logo" class="img">
+                      <img src="./assets/images/coin-8.svg" width="20" height="20" alt="Avalanche logo" class="img">
 
                       <h3>
                         <a href="#" class="coin-name">Avalanche <span class="span">AVAX</span></a>
@@ -608,7 +392,7 @@
                   <td class="table-data market-cap">$880,423,640,582</td>
 
                   <td class="table-data">
-                    <img src="assets\images\chart-1.svg" width="100" height="40" alt="profit chart" class="chart">
+                    <img src="./assets/images/chart-1.svg" width="100" height="40" alt="profit chart" class="chart">
                   </td>
 
                   <td class="table-data">
@@ -625,12 +409,9 @@
 
         </div>
       </section>
-
-
-
-
-
-      <!--INSTRUCTION-->
+      <!-- 
+        - #INSTRUCTION
+      -->
 
       <section class="section instruction" aria-label="instruction" data-section>
         <div class="container">
@@ -647,7 +428,7 @@
               <div class="instruction-card">
 
                 <figure class="card-banner">
-                  <img src="assets\images\instruction-1.png" width="96" height="96" loading="lazy" alt="Step 1"
+                  <img src="./assets/images/instruction-1.png" width="96" height="96" loading="lazy" alt="Step 1"
                     class="img">
                 </figure>
 
@@ -666,7 +447,7 @@
               <div class="instruction-card">
 
                 <figure class="card-banner">
-                  <img src="assets\images\instruction-2.png" width="96" height="96" loading="lazy" alt="Step 2"
+                  <img src="./assets/images/instruction-2.png" width="96" height="96" loading="lazy" alt="Step 2"
                     class="img">
                 </figure>
 
@@ -685,7 +466,7 @@
               <div class="instruction-card">
 
                 <figure class="card-banner">
-                  <img src="assets\images\instruction-3.png" width="96" height="96" loading="lazy" alt="Step 3"
+                  <img src="./assets/images/instruction-3.png" width="96" height="96" loading="lazy" alt="Step 3"
                     class="img">
                 </figure>
 
@@ -704,7 +485,7 @@
               <div class="instruction-card">
 
                 <figure class="card-banner">
-                  <img src="assets\images\instruction-4.png" width="96" height="96" loading="lazy" alt="Step 4"
+                  <img src="./assets/images/instruction-4.png" width="96" height="96" loading="lazy" alt="Step 4"
                     class="img">
                 </figure>
 
@@ -723,18 +504,13 @@
 
         </div>
       </section>
-
-
-
-
-
-      <!--ABOUT-->
+     <!--- #ABOUT -->
 
       <section class="section about" aria-label="about" data-section>
         <div class="container">
 
           <figure class="about-banner">
-            <img src="assets\images\about-banner.png" width="748" height="436" loading="lazy" alt="about banner"
+            <img src="./assets/images/about-banner.png" width="748" height="436" loading="lazy" alt="about banner"
               class="w-100">
           </figure>
 
@@ -786,12 +562,9 @@
 
         </div>
       </section>
-
-
-
-
-
-      <!--APP-->
+ <!-- 
+        - #APP
+      -->
 
       <section class="section app" aria-label="app" data-section>
         <div class="container">
@@ -829,27 +602,10 @@
                   Rest Assured You (And Only You) Have Access To Your Funds
                 </p>
               </li>
-
-            </ul>
-
-            <div class="app-wrapper">
-              <a href="#">
-                <img src="assets\images\googleplay.png" width="135" height="40" loading="lazy"
-                  alt="get it on google play">
-              </a>
-
-              <a href="#">
-                <img src="assets\images\appstore.png" width="120" height="40" loading="lazy"
-                  alt="download on the app store">
-              </a>
-            </div>
-
-          </div>
-
+            </ul></div>
           <div class="app-banner">
-            <img src="assets\images\app-banner.png" width="618" height="526" loading="lazy" alt="app banner"
+            <img src="./assets/images/app-banner.png" width="618" height="526" loading="lazy" alt="app banner"
               class="w-100">
-
             <span class="span">Scan To Download</span>
           </div>
 
@@ -858,13 +614,7 @@
 
     </article>
   </main>
-
-
-
-
-
-  <!--FOOTER-->
-
+  <!-- - #FOOTER-->
   <footer class="footer">
 
     <div class="footer-top" data-section>
@@ -873,18 +623,18 @@
         <div class="footer-brand">
 
           <a href="#" class="logo">
-            <img src="assets\images\logo.svg" width="50" height="50" alt="CryptoPulse logo">
+            <img src="./assets/images/logo.png" width="50" height="50" alt="Cryptex logo">
             CryptoPulse
           </a>
 
           <h2 class="footer-title">Let's talk! 🤙</h2>
 
-          <a href="tel:+917500451938" class="footer-contact-link">+91 750 045 1938</a>
+          <a href="tel:+123456789101" class="footer-contact-link">+12 345 678 9101</a>
 
-          <a href="mailto:cryptoweb28@gmail.com" class="footer-contact-link">cryptoweb28@gmail.com</a>
+          <a href="mailto:hello.cryptex@gmail.com" class="footer-contact-link">hello.cryptex@gmail.com</a>
 
           <address class="footer-contact-link">
-            GLA University 281406 NH-2 Mathura Delhi Road Chaumuhan 281406
+            Cecilia Chapman 711-2880 Nulla St. Mankato Mississippi 96522
           </address>
 
         </div>
@@ -926,7 +676,6 @@
           <li>
             <p class="footer-list-title">Services</p>
           </li>
-
           <li>
             <a href="#" class="footer-link">Buy Crypto</a>
           </li>
@@ -982,90 +731,30 @@
           <li>
             <a href="#" class="footer-link">Trading Rules</a>
           </li>
-
         </ul>
-
         <ul class="footer-list">
-
           <li>
             <p class="footer-list-title">About Us</p>
           </li>
-
           <li>
             <a href="#" class="footer-link">About Bybit</a>
           </li>
-
           <li>
             <a href="#" class="footer-link">Authenticity Check</a>
           </li>
-
           <li>
             <a href="#" class="footer-link">Careers</a>
           </li>
-
           <li>
             <a href="#" class="footer-link">Business Contacts</a>
           </li>
-
           <li>
             <a href="#" class="footer-link">Blog</a>
           </li>
-
         </ul>
-
       </div>
-    </div>
-
-    <div class="footer-bottom">
-      <div class="container">
-
-        <p class="copyright">
-          &copy; 2025 CryptoPulse All Rights Reserved by <a href="#" class="copyright-link">CryptoPulse</a>
-        </p>
-
-        <ul class="social-list">
-
-          <li>
-            <a href="#" class="social-link">
-              <ion-icon name="logo-facebook"></ion-icon>
-            </a>
-          </li>
-
-          <li>
-            <a href="#" class="social-link">
-              <ion-icon name="logo-twitter"></ion-icon>
-            </a>
-          </li>
-
-          <li>
-            <a href="#" class="social-link">
-              <ion-icon name="logo-instagram"></ion-icon>
-            </a>
-          </li>
-
-          <li>
-            <a href="#" class="social-link">
-              <ion-icon name="logo-linkedin"></ion-icon>
-            </a>
-          </li>
-
-        </ul>
-
-      </div>
-    </div>
-
   </footer>
-
-
-
-    
-
-     <!--custom js link-->
-  <script src="script.js" defer></script>
-
-  <!--ionicon link -->
-  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-
+  <script src="./script.js" defer></script>
 </body>
+
 </html>
