@@ -12,7 +12,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 
 app.set('view engine', 'ejs')
-app.set('views', './views');
+
 app.use(upload.array());
 
 let data=" "
