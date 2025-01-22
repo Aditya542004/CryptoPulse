@@ -13,7 +13,6 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.set('view engine', 'ejs')
 app.use(express.static('public'));
 app.use(upload.array());
-
 let data = " "
 request('https://api.coingecko.com/api/v3/coins/bitcoin', function (error, response, body) {
   console.error('error:', error); // Print the error if one occurred
