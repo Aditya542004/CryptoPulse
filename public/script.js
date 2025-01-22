@@ -92,3 +92,48 @@ const scrollReveal = function () {
 scrollReveal();
 
 addEventOnElem(window, "scroll", scrollReveal);
+
+
+
+
+/* dark & light*/
+class ThemeManager {  
+  constructor() {  
+      this.themeToggle = document.getElementById('themeToggle');  
+      this.loadTheme();  
+      this.initEventListeners();  
+  }  
+
+  // Initialize event listeners  
+  initEventListeners() {  
+      this.themeToggle.addEventListener('click', () => this.toggleTheme());  
+  }  
+
+  // Toggle between dark and light modes  
+  toggleTheme() {  
+      document.body.classList.toggle('dark-mode');  
+      this.saveTheme();  
+  }  
+
+  // Save current theme preference to localStorage  
+  saveTheme() {  
+      const isDarkMode = document.body.classList.contains('dark-mode');  
+      localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');  
+  }  
+
+  // Load theme preference from localStorage  
+  loadTheme() {  
+      const savedTheme = localStorage.getItem('theme');  
+      
+      if (savedTheme === 'dark') {  
+          document.body.classList.add('dark-mode');  
+      }  
+  }  
+}  
+
+
+
+// Initialize Theme Manager  
+document.addEventListener('DOMContentLoaded', () => {  
+  new ThemeManager();  
+});  

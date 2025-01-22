@@ -1,48 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About</title>
-    <link rel="stylesheet" href="./style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About</title>
+  <link rel="stylesheet" href="./style.css">
 </head>
+<style>
+  /* From Uiverse.io by alexruix */
+  /* The switch - the box around the slider */
+  .switch {
+    font-size: 17px;
+    position: relative;
+    display: inline-block;
+    width: 3.5em;
+    height: 2em;
+  }
+
+  /* Hide default HTML checkbox */
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+
+  /* The slider */
+  .slider {
+    --background: #28096b;
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--background);
+    transition: .5s;
+    border-radius: 30px;
+  }
+
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 1.4em;
+    width: 1.4em;
+    border-radius: 50%;
+    left: 10%;
+    bottom: 15%;
+    box-shadow: inset 8px -4px 0px 0px #fff000;
+    background: var(--background);
+    transition: .5s;
+  }
+
+  input:checked+.slider {
+    background-color: #522ba7;
+  }
+
+  input:checked+.slider:before {
+    transform: translateX(100%);
+    box-shadow: inset 15px -4px 0px 15px #fff000;
+  }
+</style>
 <body>
-<<<<<<< HEAD
-    <header class="header" data-header>
-        <div class="container">
-          <a href="/" class="logo">
-            <img src="./logo.png" width="32" height="32" alt="CryptoPulse logo">
-            CryptoPulse
-          </a>
-          <nav class="navbar" data-navbar>
-            <ul class="navbar-list">
-              <li class="navbar-item">
-                <a href="/index" class="navbar-link" data-nav-link>Cryptocurrency</a>
-              </li>
-              <li class="navbar-item">
-                <a href="/about" class="navbar-link" data-nav-link>About us</a>
-              </li>
-            </ul>
-          </nav>
-          <button class="nav-toggle-btn" aria-label="Toggle menu" data-nav-toggler>
-            <span class="line line-1"></span>
-            <span class="line line-2"></span>
-            <span class="line line-3"></span>
-          </button>
-    
-          <a href="#" class="btn btn-outline">Wallet</a>
-    
-        </div>
-      </header>
-=======
-     <!-- 
-    - #HEADER
-  -->
+
   <header class="header" data-header>
     <div class="container">
       <a href="/" class="logo">
-        <img src="./logo.png" width="32" height="32" alt="CryptoPulse logo" >
-        CryptoPulse
+        <img src="./logo2.png" width="32" height="32" alt="CryptoPulse logo" cl>
+       <span style="color:rgb(202, 154, 248);">Crypto</span><span style="color:rgb(225, 182, 89);">Pulse</span> 
       </a>
       <nav class="navbar" data-navbar>
         <ul class="navbar-list">
@@ -59,12 +84,180 @@
         <span class="line line-2"></span>
         <span class="line line-3"></span>
       </button>
+      <label class="switch">
+        <input type="checkbox" id="themeToggle">
+        <span class="slider"></span>
+      </label>
 
-      <a href="#" class="btn btn-outline">Wallet</a>
+
+      <!-- <a  class="btn btn-outline">Wallet</a> -->
 
     </div>
   </header>
->>>>>>> 8f545e131fcf574ca895f933828dbb10665897cc
-    <H1>About CryptoPulse</H1>
+  <H1>About CryptoPulse</H1>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <!-- - #FOOTER-->
+  <footer class="footer">
+
+    <div class="footer-top" data-section>
+      <div class="container">
+
+        <div class="footer-brand">
+
+          <a href="/" class="logo">
+            <img src="./logo2.png" width="32" height="32" alt="CryptoPulse logo" cl>
+           <span style="color:rgb(202, 154, 248);">Crypto</span><span style="color:rgb(225, 182, 89);">Pulse</span> 
+          </a>
+
+          <h2 class="footer-title">Let's talk! 🤙</h2>
+
+          <a href="tel:+123456789101" class="footer-contact-link">+12 345 678 9101</a>
+
+          <a href="mailto:hello.cryptex@gmail.com" class="footer-contact-link">hello.cryptex@gmail.com</a>
+
+          <address class="footer-contact-link">
+            Cecilia Chapman 711-2880 Nulla St. Mankato Mississippi 96522
+          </address>
+
+        </div>
+
+        <ul class="footer-list">
+
+          <li>
+            <p class="footer-list-title">Products</p>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">Spot</a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">Inverse Perpetual</a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">USDT Perpetual</a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">Exchange</a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">Launchpad</a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">Binance Pay</a>
+          </li>
+
+        </ul>
+
+        <ul class="footer-list">
+
+          <li>
+            <p class="footer-list-title">Services</p>
+          </li>
+          <li>
+            <a href="#" class="footer-link">Buy Crypto</a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">Markets</a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">Tranding Fee</a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">Affiliate Program</a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">Referral Program</a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">API</a>
+          </li>
+
+        </ul>
+
+        <ul class="footer-list">
+
+          <li>
+            <p class="footer-list-title">Support</p>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">Bybit Learn</a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">Help Center</a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">User Feedback</a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">Submit a request</a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">API Documentation</a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">Trading Rules</a>
+          </li>
+        </ul>
+        <ul class="footer-list">
+          <li>
+            <p class="footer-list-title">About Us</p>
+          </li>
+          <li>
+            <a href="#" class="footer-link">About Bybit</a>
+          </li>
+          <li>
+            <a href="#" class="footer-link">Authenticity Check</a>
+          </li>
+          <li>
+            <a href="#" class="footer-link">Careers</a>
+          </li>
+          <li>
+            <a href="#" class="footer-link">Business Contacts</a>
+          </li>
+          <li>
+            <a href="#" class="footer-link">Blog</a>
+          </li>
+        </ul>
+      </div>
+  </footer>
 </body>
+
 </html>

@@ -23,7 +23,7 @@ request('https://api.coingecko.com/api/v3/coins/bitcoin', function (error, respo
 
 // Use app.get() for routing
 app.get('/', (req, res) => {
-  res.render('deshboard.ejs'); 
+  res.render('deshboard.ejs',{data}); 
 });
 
 app.get('/index', (req, res) => {

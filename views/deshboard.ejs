@@ -8,6 +8,60 @@
   <title>CryptoPulse</title>
   <link rel="stylesheet" href="./style.css">
 </head>
+<style>
+  /* From Uiverse.io by alexruix */
+  /* The switch - the box around the slider */
+  .switch {
+    font-size: 17px;
+    position: relative;
+    display: inline-block;
+    width: 3.5em;
+    height: 2em;
+  }
+
+  /* Hide default HTML checkbox */
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+
+  /* The slider */
+  .slider {
+    --background: #28096b;
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--background);
+    transition: .5s;
+    border-radius: 30px;
+  }
+
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 1.4em;
+    width: 1.4em;
+    border-radius: 50%;
+    left: 10%;
+    bottom: 15%;
+    box-shadow: inset 8px -4px 0px 0px #fff000;
+    background: var(--background);
+    transition: .5s;
+  }
+
+  input:checked+.slider {
+    background-color: #522ba7;
+  }
+
+  input:checked+.slider:before {
+    transform: translateX(100%);
+    box-shadow: inset 15px -4px 0px 15px #fff000;
+  }
+</style>
 
 <body>
   <!-- 
@@ -15,14 +69,9 @@
   -->
   <header class="header" data-header>
     <div class="container">
-<<<<<<< HEAD
       <a href="/" class="logo">
-        <img src="./logo.png" width="32" height="32" alt="CryptoPulse logo">
-=======
-      <a href="#" class="logo">
-        <img src="./logo.png" width="32" height="32" alt="CryptoPulse logo" cl>
->>>>>>> 8f545e131fcf574ca895f933828dbb10665897cc
-        CryptoPulse
+        <img src="./logo2.png" width="32" height="32" alt="CryptoPulse logo" cl>
+       <span style="color:rgb(202, 154, 248);">Crypto</span><span style="color:rgb(225, 182, 89);">Pulse</span> 
       </a>
       <nav class="navbar" data-navbar>
         <ul class="navbar-list">
@@ -39,8 +88,13 @@
         <span class="line line-2"></span>
         <span class="line line-3"></span>
       </button>
+      <label class="switch">
+        <input type="checkbox" id="themeToggle">
+        <span class="slider"></span>
+      </label>
 
-      <a href="#" class="btn btn-outline">Wallet</a>
+
+      <!-- <a  class="btn btn-outline">Wallet</a> -->
 
     </div>
   </header>
@@ -53,7 +107,7 @@
 
           <div class="hero-content">
 
-            <h1 class="h1 hero-title">Buy & Sell Digital Assets In The CryptoPulse</h1>
+            <h1 class="h1 hero-title">Invest in innovation, embrace the blockchain</h1>
 
             <p class="hero-text">
               Coin CryptoPulse is the easiest, safest, and fastest way to buy & sell crypto asset exchange.
@@ -64,11 +118,7 @@
           </div>
 
           <figure class="hero-banner">
-<<<<<<< HEAD
-            <img src="/hero-banner.png" width="570" height="448" alt="hero banner" class="w-100">
-=======
-            <img src="./hero-banner.png" width="570" height="448" alt="hero banner" class="w-100">
->>>>>>> 8f545e131fcf574ca895f933828dbb10665897cc
+            <img src="https://cryptologos.cc/logos/bitcoin-btc-logo.png" width="570" height="448" alt="hero banner" class="w-100">
           </figure>
 
         </div>
@@ -133,9 +183,9 @@
                     </div>
                   </td>
 
-                  <td class="table-data last-price">$56,623.54</td>
+                  <td class="table-data last-price">$<%- data.market_data.current_price["usd"] %>.00</td>
 
-                  <td class="table-data last-update green">+1.45%</td>
+                  <td class="table-data last-update green"><%- data.market_data.price_change_percentage_7d_in_currency["usd"] %> %</td>
 
                   <td class="table-data market-cap">$880,423,640,582</td>
 
@@ -435,8 +485,7 @@
               <div class="instruction-card">
 
                 <figure class="card-banner">
-                  <img src="./instruction-1.png" width="96" height="96" loading="lazy" alt="Step 1"
-                    class="img">
+                  <img src="./instruction-1.png" width="96" height="96" loading="lazy" alt="Step 1" class="img">
                 </figure>
 
                 <p class="card-subtitle">Step 1</p>
@@ -444,7 +493,9 @@
                 <h3 class="h3 card-title">Download</h3>
 
                 <p class="card-text">
-                  Stacks Is A Production-Ready Library Of Stackable Content Blocks Built In React Native.
+                  Visit the Cryptopulse website or app. Click on the "Sign Up" button and fill in your details.
+            Complete the signup process.
+          
                 </p>
 
               </div>
@@ -454,46 +505,48 @@
               <div class="instruction-card">
 
                 <figure class="card-banner">
-                  <img src="./instruction-2.png" width="96" height="96" loading="lazy" alt="Step 2"
-                    class="img">
+                  <img src="./instruction-3.png" width="96" height="96" loading="lazy" alt="Step 3" class="img">
                 </figure>
 
                 <p class="card-subtitle">Step 2</p>
 
-                <h3 class="h3 card-title">Connect Wallet</h3>
+                <h3 class="h3 card-title">Explore & Fun</h3>
 
                 <p class="card-text">
-                  Stacks Is A Production-Ready Library Of Stackable Content Blocks Built In React Native.
+                   Access our user-friendly dashboard with real-time market updates.
+                  Use built-in educational resources to understand blockchain.
+                  
                 </p>
 
               </div>
             </li>
-
+            
             <li>
               <div class="instruction-card">
 
                 <figure class="card-banner">
-                  <img src="./instruction-3.png" width="96" height="96" loading="lazy" alt="Step 3"
-                    class="img">
+                  <img src="./instruction-2.png" width="96" height="96" loading="lazy" alt="Step 2" class="img">
                 </figure>
 
                 <p class="card-subtitle">Step 3</p>
 
-                <h3 class="h3 card-title">Start Trading</h3>
+                <h3 class="h3 card-title">Advanced Trading Options</h3>
 
                 <p class="card-text">
-                  Stacks Is A Production-Ready Library Of Stackable Content Blocks Built In React Native.
+                   Utilize tools like limit orders, stop-loss, and analytics.
+                 Optimize your trading strategy with detailed charts.
                 </p>
 
               </div>
             </li>
 
+            
+
             <li>
               <div class="instruction-card">
 
                 <figure class="card-banner">
-                  <img src="./instruction-4.png" width="96" height="96" loading="lazy" alt="Step 4"
-                    class="img">
+                  <img src="./instruction-4.png" width="96" height="96" loading="lazy" alt="Step 4" class="img">
                 </figure>
 
                 <p class="card-subtitle">Step 4</p>
@@ -517,8 +570,7 @@
         <div class="container">
 
           <figure class="about-banner">
-            <img src="./about-banner.png" width="748" height="436" loading="lazy" alt="about banner"
-              class="w-100">
+            <img src="./about-banner.png" width="748" height="436" loading="lazy" alt="about banner" class="w-100">
           </figure>
 
           <div class="about-content">
@@ -612,8 +664,7 @@
             </ul>
           </div>
           <div class="app-banner">
-            <img src="./app-banner.png" width="618" height="526" loading="lazy" alt="app banner"
-              class="w-100">
+            <img src="./app-banner.png" width="618" height="526" loading="lazy" alt="app banner" class="w-100">
             <span class="span">Scan To Download</span>
           </div>
 
@@ -630,9 +681,9 @@
 
         <div class="footer-brand">
 
-          <a href="#" class="logo">
-            <img src="./logo.png" width="50" height="50" alt="Cryptex logo">
-            CryptoPulse
+          <a href="/" class="logo">
+            <img src="./logo2.png" width="32" height="32" alt="CryptoPulse logo" cl>
+           <span style="color:rgb(202, 154, 248);">Crypto</span><span style="color:rgb(225, 182, 89);">Pulse</span> 
           </a>
 
           <h2 class="footer-title">Let's talk! 🤙</h2>

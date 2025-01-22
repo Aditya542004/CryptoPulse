@@ -1,4 +1,45 @@
+ 
+  
+  
+  
+  
+  
+  
+  
+  /* Base styles */  
+   body {  
+    transition: background-color 0.3s, color 0.3s;  
+}  
+
+/* Light Mode (default) */  
+body {  
+    background-color: #c7b7b7;  
+    color: #2c2c2c;  
+}  
+
+/* Dark Mode */  
+body.dark-mode {  
+    background-color: #dadada;  
+    color: #b4b4b4;  
+}  
+
+/* Theme-specific element styles */  
+.dark-mode .card {  
+    background-color: #848484;  
+    border-color: #555;  
+}  
+
+.dark-mode .button {  
+    background-color: #666;  
+    color: #606060;  
+} 
+
 :root {
+
+  
+
+
+
     /**
        * colors
        */
@@ -247,7 +288,7 @@
   .h1,
   .h2,
   .h3 {
-    color: var(--white);
+    color:rgb(176, 176, 176);
     line-height: 1.1;
   }
   
@@ -735,9 +776,7 @@
     transition: var(--transition-2);
   }
   
-  .instruction-card:hover .card-banner {
-    transform: rotateY(1turn);
-  }
+
   
   .instruction-card .img {
     margin-inline: auto;
