@@ -1,53 +1,257 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CryptoPulse Dashboard</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <!-- HEADER SECTION -->
+    <header class="header" data-header>
+      <div class="container">
+        <a href="/" class="logo">
+          <img src="./logo.png" width="40" height="40" alt="CryptoPulse logo" />
+          CryptoPulse
+        </a>
+        <nav class="navbar" data-navbar>
+          <ul class="navbar-list">
+            <li class="navbar-item">
+              <a href="/index" class="navbar-link" data-nav-link
+                >Cryptocurrency</a
+              >
+            </li>
+            <li class="navbar-item">
+              <a href="/about" class="navbar-link" data-nav-link>About us</a>
+            </li>
+          </ul>
+        </nav>
+        <button
+          class="nav-toggle-btn"
+          aria-label="Toggle menu"
+          data-nav-toggler
+        >
+          <span class="line line-1"></span>
+          <span class="line line-2"></span>
+          <span class="line line-3"></span>
+        </button>
+        <a href="#" class="btn btn-outline">Wallet</a>
+      </div>
+    </header>
+    <main>
+      <!-- DASHBOARD SECTION -->
+      <div class="dashboard">
+        <div class="coin-info">
+          <div class="coin-header">
+            <h1 class="coin-title">Bitcoin (BTC)</h1>
+            <img
+              src="https://cryptologos.cc/logos/bitcoin-btc-logo.png"
+              alt="Bitcoin Logo"
+              class="coin-logo"
+            />
+          </div>
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CryptoPulse</title>
-  
-</head>
+          <!-- Coin Data -->
+          <div class="coin-stats">
+            <div class="stat-box">
+              <h3>Price</h3>
+              <p>
+                $<span class="price"
+                  ><%- data.market_data.current_price["usd"] %></span
+                >
+              </p>
+            </div>
+            <div class="stat-box">
+              <h3>24h High</h3>
+              <p>
+                $<span class="high"
+                  ><%- data.market_data.high_24h["usd"] %></span
+                >
+              </p>
+            </div>
+            <div class="stat-box">
+              <h3>24h Low</h3>
+              <p>
+                $<span class="low"><%- data.market_data.low_24h["usd"] %></span>
+              </p>
+            </div>
+            <div class="stat-box">
+              <h3>7 Days Change</h3>
+              <p>
+                <span class="change"
+                  ><%-
+                  data.market_data.price_change_percentage_7d_in_currency["usd"]
+                  %> %</span
+                >
+              </p>
+            </div>
+          </div>
 
-<body>
-    <div>
-        <p>
-            positive sentiments:
-            <%- data.sentiment_votes_up_percentage %> %
-        </p>
-    </div>
-    <div>
-        <p>
-            negative sentiments:
-            <%- data.sentiment_votes_down_percentage %> %
-        </p>
+          <!-- Sentiments -->
+          <div class="sentiments">
+            <div class="sentiment-box">
+              <h3>Positive Sentiments</h3>
+              <p><%- data.sentiment_votes_up_percentage %> %</p>
+            </div>
+            <div class="sentiment-box">
+              <h3>Negative Sentiments</h3>
+              <p><%- data.sentiment_votes_down_percentage %> %</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
 
-    </div>
-    <div>
-        <p>
-            price:$
-            <%- data.market_data.current_price["usd"] %>
-        </p>
-    </div>
-    <div>
-        <p>
-            24h high:$
-            <%- data.market_data.high_24h["usd"] %>%
-        </p>
-        <p>
-            24h low:$
-            <%- data.market_data.low_24h["usd"] %>%
-        </p>
-        <p>
-            7days change:
-            <%- data.market_data.price_change_percentage_7d_in_currency["usd"] %> %
-        </p>
-    </div>
+    <script src="./script.js"></script>
+  </body>
+  <style>
+    /* Dashboard Section */
+    .dashboard {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 60px 20px; /* Increased padding for better spacing */
+      background: #f4f6f9; /* Light background for a fresh look */
+    }
 
-    
-   <script>
+    .coin-info {
+      background: #fff;
+      padding: 40px 30px;
+      border-radius: 15px;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 900px; /* Increased max-width for a more spacious design */
+      transition: all 0.3s ease;
+    }
 
-   </script>
-</body>
+    .coin-info:hover {
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15); /* Slight shadow increase on hover */
+      transform: translateY(-5px); /* Subtle lift on hover */
+    }
 
+    .coin-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 30px;
+    }
+
+    .coin-title {
+      font-size: 2.2rem; /* Slightly larger font */
+      font-weight: bold;
+      color: #333; /* Dark color for better readability */
+    }
+
+    .coin-logo {
+      width: 60px;
+      height: 60px; /* Slightly bigger logo */
+    }
+
+    .coin-stats {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 40px;
+      gap: 20px; /* Added gap between stat boxes */
+    }
+
+    .stat-box {
+      background: #fafafa; /* Light grey background for contrast */
+      padding: 25px 20px;
+      border-radius: 12px;
+      width: 22%;
+      text-align: center;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+      transition: all 0.3s ease;
+    }
+
+    .stat-box:hover {
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Hover effect for stat boxes */
+      transform: translateY(-4px);
+    }
+
+    .stat-box h3 {
+      font-size: 1.4rem; /* Slightly larger heading */
+      color: #333;
+      margin-bottom: 15px;
+    }
+
+    .stat-box p {
+      font-size: 1.7rem; /* Larger font for stats */
+      font-weight: bold;
+      color: #333;
+    }
+
+    .sentiments {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 40px;
+      gap: 20px; /* Added gap between sentiment boxes */
+    }
+
+    .sentiment-box {
+      background: #e9f7f7;
+      padding: 20px 15px;
+      border-radius: 12px;
+      width: 48%; /* Adjusted width */
+      text-align: center;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+      transition: all 0.3s ease;
+    }
+
+    .sentiment-box:hover {
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Hover effect for sentiment boxes */
+      transform: translateY(-4px);
+    }
+
+    .sentiment-box h3 {
+      font-size: 1.4rem;
+      color: #333;
+      margin-bottom: 10px;
+    }
+
+    .sentiment-box p {
+      font-size: 1.5rem; /* Slightly larger font for sentiment percentages */
+      font-weight: bold;
+      color: #333;
+    }
+
+    /* Specific Styles for Stats & Sentiments */
+    .price,
+    .high,
+    .low,
+    .change {
+      color: #00b8d4; /* Turquoise for price and high/low stats */
+    }
+
+    .price {
+      font-size: 1.8rem;
+      color: #008080; /* Slightly darker for better contrast */
+    }
+
+    .high,
+    .low {
+      font-size: 1.6rem;
+      color: #333;
+    }
+
+    .change {
+      font-size: 1.6rem;
+      color: #ff6347; /* Red color for change to indicate fluctuations */
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .coin-stats,
+      .sentiments {
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      .stat-box,
+      .sentiment-box {
+        width: 100%;
+      }
+    }
+  </style>
 </html>
