@@ -65,6 +65,9 @@
 </style>
 
 <body>
+      
+
+
   <!-- HEADER SECTION -->
   <header class="header" data-header>
     <div class="container">
@@ -96,11 +99,32 @@
     </div>
   </header>
 
+  <form method="post" style="margin-top: 10%;">
+    <select name="selectCoin" onchange="this.form.submit()">
+      <option >Select coin</option>
+     <option value="bitcoin">Bitcoin(BTC)</option>
+     <option value="binancecoin">Binance(BNB)</option>
+     <option value="ethereum">Ethereum(ETH)</option>
+     <option value="solana">Solana(SOL)</option>
+     <option value="tether">Tether(USDT)</option>
+     <option value="dogecoin">Dogecoin(DOGE)</option>
+     <option value="ripple">Ripple(XRP)</option>
+     <option value="avalanche-2">Avalanche(AVAX)</option>
+      <option value="cardano">Cardano(ADA)</option>
+      <option value="polkadot">Polkadot(DOT)</option>
+      <option value="litecoin">Litecoin(LTC)</option>
+      <option value="decentraland">Decentraland(MANA)</option>
+
+    </select>
+  </form>
+
+
  <!-- DASHBOARD SECTION -->
   <div class="dashboard">
     <div class="coin-info">
       <div class="coin-header">
-        <h1 class="coin-title">Bitcoin (BTC)</h1>
+        <h1 class="coin-title"><%- data.name %></h1>
+        
         <img src="https://cryptologos.cc/logos/bitcoin-btc-logo.png" alt="Bitcoin Logo" class="coin-logo" />
       </div>
 
@@ -148,7 +172,6 @@
 
     </div>
   </div>
-
   <section class="section market" aria-label="market update" data-section>
     <div class="container">
 
@@ -203,12 +226,11 @@
                   <img src="./coin-1.svg" width="20" height="20" alt="Bitcoin logo" class="img">
 
                   <h3>
-                    <a href="#" class="coin-name">Bitcoin <span class="span">BTC</span></a>
+                    <a href="#"   class="coin-name">Bitcoin <span class="span">BTC</span></a>
                   </h3>
                 </div>
-              </td>
 
-              <td class="table-data last-price">$<%- data.market_data.current_price["usd"] %>.00</td>
+              <td class="table-data last-price">$<%- data.market_data.current_price.usd %>.00</td>
 
               <td class="table-data last-update green"><%-
                   data.market_data.price_change_percentage_7d_in_currency["usd"] %> %</td>
@@ -492,6 +514,7 @@
 
     </div>
   </section>
+
   <!-- Footer Section -->
 
 
