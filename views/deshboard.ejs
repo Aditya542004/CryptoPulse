@@ -179,16 +179,16 @@
                       <img src="./coin-1.svg" width="20" height="20" alt="Bitcoin logo" class="img">
 
                       <h3>
-                        <a href="#" class="coin-name">Bitcoin <span class="span">BTC</span></a>
+                        <a href="/index?selectCoin=bitcoin"  class="coin-name">Bitcoin <span class="span">BTC</span></a>
                       </h3>
                     </div>
                   </td>
 
-                  <td class="table-data last-price">$<%- data.market_data.current_price["usd"] %>.00</td>
+                  <td class="table-data last-price"> $ <%- data.market_data.current_price["usd"] %>.00</td>
 
-                  <td class="table-data last-update green"><%- data.market_data.price_change_percentage_7d_in_currency["usd"] %> %</td>
+                  <td class="table-data last-update green"> <%- data.market_data.price_change_percentage_7d_in_currency["usd"] %> %</td>
 
-                  <td class="table-data market-cap">$880,423,640,582</td>
+                  <td class="table-data market-cap"> <%- data.market_data.market_cap["usd"] %>$</td>
 
                   <td class="table-data">
                     <img src="./chart-1.svg" width="100" height="40" alt="profit chart" class="chart">
@@ -216,7 +216,7 @@
                       <img src="./coin-2.svg" width="20" height="20" alt="Ethereum logo" class="img">
 
                       <h3>
-                        <a href="#" class="coin-name">Ethereum <span class="span">ETH</span></a>
+                        <a href="/index?selectCoin=ethereum"  class="coin-name">Ethereum <span class="span">ETH</span></a>
                       </h3>
                     </div>
                   </td>
@@ -297,7 +297,7 @@
 
                   <td class="table-data last-price">$56,623.54</td>
 
-                  <td class="table-data last-update red">-3.75%%</td>
+                  <td class="table-data last-update red">-3.75%</td>
 
                   <td class="table-data market-cap">$880,423,640,582</td>
 
