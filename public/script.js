@@ -13,6 +13,12 @@ const addEventOnElem = function (elem, type, callback) {
   }
 }
 
+ // When a coin div is clicked, set the hidden input value and submit the form.
+ function selectCoin(coin) {
+  document.getElementById('selectCoin').value = coin;
+  document.getElementById('coinForm').submit();
+}
+
 
 
 /**

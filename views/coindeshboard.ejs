@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+<style>
+    /* Dashboard Section */
+    .dashboard {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 60px 20px;
+      background: #f4f6f9;
+    }
+  
+    .coin-info {
+      background: #fff;
+      padding: 40px 30px;
+      border-radius: 15px;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 900px;
+      transition: all 0.3s ease;
+    }
+  
+    .coin-info:hover {
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+      transform: translateY(-5px);
+    }
+  
+    .coin-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 30px;
+    }
+  
+    .coin-title {
+      font-size: 2.2rem;
+      font-weight: bold;
+      color: #333;
+    }
+  
+    .coin-logo {
+      width: 60px;
+      height: 60px;
+    }
+  
+    .coin-stats {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 40px;
+      gap: 20px;
+    }
+  
+    .stat-box {
+      background: #fafafa;
+      padding: 25px 20px;
+      border-radius: 12px;
+      width: 22%;
+      text-align: center;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+      transition: all 0.3s ease;
+    }
+  
+    .stat-box:hover {
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transform: translateY(-4px);
+    }
+  
+    .stat-box h3 {
+      font-size: 1.4rem;
+      color: #333;
+      margin-bottom: 15px;
+    }
+  
+    .stat-box p {
+      font-size: 1.7rem;
+      font-weight: bold;
+      color: #333;
+    }
+  
+    .sentiments {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 40px;
+      gap: 20px;
+    }
+  
+    .sentiment-box {
+      background: #e9f7f7;
+      padding: 20px 15px;
+      border-radius: 12px;
+      width: 48%;
+      text-align: center;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+      transition: all 0.3s ease;
+    }
+  
+    .sentiment-box:hover {
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transform: translateY(-4px);
+    }
+  
+    .sentiment-box h3 {
+      font-size: 1.4rem;
+      color: #333;
+      margin-bottom: 10px;
+    }
+  
+    .sentiment-box p {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #333;
+    }
+  
+    /* Specific Styles for Stats & Sentiments */
+    .price,
+    .high,
+    .low,
+    .change {
+      color: #00b8d4;
+    }
+  
+    .price {
+      font-size: 1.8rem;
+      color: #008080;
+    }
+  
+    .high,
+    .low {
+      font-size: 1.6rem;
+      color: #333;
+    }
+  
+    .change {
+      font-size: 1.6rem;
+      color: #ff6347;
+    }
+  
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .coin-stats,
+      .sentiments {
+        flex-direction: column;
+        gap: 20px;
+      }
+  
+      .stat-box,
+      .sentiment-box {
+        width: 100%;
+      }
+    }
+  </style>
+  
+    <!-- DASHBOARD SECTION -->
+  <div class="dashboard">
+    <div class="coin-info">
+      <div class="coin-header">
+        <h1 class="coin-title"><%- data.name %></h1>
+        <img src="https://cryptologos.cc/logos/bitcoin-btc-logo.png" alt="Bitcoin Logo" class="coin-logo" />
+      </div>
+
+      <!-- Coin Data -->
+      <div class="coin-stats">
+        <div class="stat-box">
+          <h3>Price</h3>
+          <p>$<span class="price"><%- data.market_data.current_price["usd"] %></span></p>
+        </div>
+        <div class="stat-box">
+          <h3>24h High</h3>
+          <p>$<span class="high"><%- data.market_data.high_24h["usd"] %></span></p>
+        </div>
+        <div class="stat-box">
+          <h3>24h Low</h3>
+          <p>$<span class="low"><%- data.market_data.low_24h["usd"] %></span></p>
+        </div>
+        <div class="stat-box">
+          <h3>7 Days Change</h3>
+          <p><span class="change"><%- data.market_data.price_change_percentage_7d_in_currency["usd"] %> %</span></p>
+        </div>
+      </div>
+
+      <div>
+        <p>positive sentiments: <%- data.sentiment_votes_up_percentage %> %</p>
+      </div>
+      <div>
+        <p>negative sentiments: <%- data.sentiment_votes_down_percentage %> %</p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
