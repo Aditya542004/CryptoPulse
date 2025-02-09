@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CryptoPulse Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
     <link rel="stylesheet" href="/style.css" />
   </head>
   <style>
@@ -157,16 +158,21 @@
         </div>
 
         <div>
-          <p>
+          <h3>
             positive sentiments: <%- data.sentiment_votes_up_percentage %> %
-          </p>
+          </h3>
         </div>
         <div>
-          <p>
+          <h3>
             negative sentiments: <%- data.sentiment_votes_down_percentage %> %
-          </p>
+          </h3>
+        </div>
+        <div id="chart">
+
         </div>
       </div>
+      
+
     </div>
 
     <!-- MARKET SECTION -->
@@ -1110,6 +1116,108 @@
     </footer>
 
     <script src="./script.js"></script>
+    <script>
+     let chartData = JSON.parse(String('<%- JSON.stringify(chart.market_caps) %>'));
+let volumedata = JSON.parse(String('<%- JSON.stringify(chart.total_volumes) %>'));
+
+var options = {
+  series: [
+    {
+      name: 'Market Caps',
+      type: 'area',
+      data: chartData
+    },
+    {
+      name: 'Total Volume',
+      type: 'line',
+      data: volumedata
+    }
+  ],
+  chart: {
+    height: 350,
+    type: 'line',
+    stacked: false
+  },
+  dataLabels: {
+    enabled: false
+  },
+  stroke: {
+    width: [2, 2]
+  },
+  title: {
+    text: 'Crypto Market Analysis',
+    align: 'left',
+    offsetX: 110
+  },
+  xaxis: {
+    type: 'datetime'
+  },
+  yaxis: [
+    {
+      seriesName: 'Market Caps',
+      axisTicks: {
+        show: true
+      },
+      axisBorder: {
+        show: true,
+        color: '#008FFB'
+      },
+      labels: {
+        style: {
+          colors: '#008FFB'
+        }
+      },
+      title: {
+        text: 'Market Caps (in USD)',
+        style: {
+          color: '#008FFB'
+        }
+      },
+      tooltip: {
+        enabled: true
+      }
+    },
+    {
+      seriesName: 'Total Volume',
+      opposite: true,
+      axisTicks: {
+        show: true
+      },
+      axisBorder: {
+        show: true,
+        color: '#00E396'
+      },
+      labels: {
+        style: {
+          colors: '#00E396'
+        }
+      },
+      title: {
+        text: 'Total Volume (in USD)',
+        style: {
+          color: '#00E396'
+        }
+      }
+    }
+  ],
+  tooltip: {
+    fixed: {
+      enabled: true,
+      position: 'topLeft',
+      offsetY: 30,
+      offsetX: 60
+    }
+  },
+  legend: {
+    horizontalAlign: 'left',
+    offsetX: 40
+  }
+};
+
+    var chart = new ApexCharts(document.querySelector("#chart"), options);
+    
+    chart.render();
+    </script>
   </body>
 
   <style>
