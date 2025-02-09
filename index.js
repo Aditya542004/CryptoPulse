@@ -22,10 +22,16 @@ async function resData(coinName) {
     request(
       'https://api.coingecko.com/api/v3/coins/' + coinName,
       function (error, response, body) {
-        console.error("error:", error); // Print the error if one occurred
+        console.error("Error fetching market data:", error); // Print the error if one occurred
+
         console.log("statusCode:", response && response.statusCode); // Print the response status code if a response was received
         console.log("body:", typeof body); // Print the HTML for the Google homepage.
-        data = JSON.parse(body);
+        if (body) {
+            data = JSON.parse(body);
+        } else {
+            reject(new Error("No data received from API"));
+        }
+
         console.log(data);
         resolve(data);
       }
@@ -34,10 +40,16 @@ async function resData(coinName) {
   if(marketData){
     var marketChart = await new Promise((resolve,reject)=>{
         request('https://api.coingecko.com/api/v3/coins/' + coinName + '/market_chart?vs_currency=usd&days=30', function (error, response, body) {
-            console.error('error:', error); 
+        console.error('Error fetching market chart:', error); 
+
             console.log('statusCode:', response && response.statusCode); 
             console.log('body:', typeof body);
-            chart = JSON.parse(body)
+        if (body) {
+            chart = JSON.parse(body);
+        } else {
+            reject(new Error("No chart data received from API"));
+        }
+
             
         resolve(data)
         });
@@ -48,9 +60,11 @@ async function resData(coinName) {
 
 
 // Use app.get() for routing
-app.get("/", function (req, res) {
-  resData(coinName);
+app.get("/", async function (req, res) {
+
+  await resData(coinName);
   res.render("deshboard.ejs", { data });
+
 });
 
 
@@ -70,9 +84,6 @@ app.get("/about", (req, res) => {
   res.render("about.ejs");
 });
 
-
-resData();
-setInterval(resData, 30000); // Refresh data every 30 seconds
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
