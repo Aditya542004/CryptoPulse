@@ -1,897 +1,1264 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CryptoPulse Dashboard</title>
-  <link rel="stylesheet" href="/style.css" />
-</head>
-<style>
-  /* From Uiverse.io by alexruix */
-
-  /* The switch - the box around the slider */
-  .switch {
-    font-size: 17px;
-    position: relative;
-    display: inline-block;
-    width: 3.5em;
-    height: 2em;
-  }
-
-  /* Hide default HTML checkbox */
-  .switch input {
-    opacity: 0;
-    width: 0;
-    height: 0;
-  }
-
-  /* The slider */
-  .slider {
-    background: #28096b;
-    position: absolute;
-    cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: var(--background);
-    transition: .5s;
-    border-radius: 30px;
-  }
-
-  .slider:before {
-    position: absolute;
-    content: "";
-    height: 1.4em;
-    width: 1.4em;
-    border-radius: 50%;
-    left: 10%;
-    bottom: 15%;
-    box-shadow: inset 8px -4px 0px 0px #fff000;
-    background: var(--background);
-    transition: .5s;
-  }
-
-  input:checked+.slider {
-    background-color: #522ba7;
-  }
-
-  input:checked+.slider:before {
-    transform: translateX(100%);
-    box-shadow: inset 15px -4px 0px 15px #fff000;
-  }
-
-  
-</style>
-
-<body>
-  <!-- HEADER SECTION -->
-  <header class="header" data-header>
-    <div class="container">
-      <a href="/" class="logo">
-        <img src="./logo2.png" width="32" height="32" alt="CryptoPulse logo">
-        <span style="color:rgb(202, 154, 248);">Crypto</span><span style="color:rgb(225, 182, 89);">Pulse</span>
-      </a>
-      <nav class="navbar" data-navbar>
-        <ul class="navbar-list">
-          <li class="navbar-item">
-            <a href="/index" class="navbar-link" data-nav-link>Cryptocurrency</a>
-          </li>
-          <li class="navbar-item">
-            <a href="/about" class="navbar-link" data-nav-link>About us</a>
-          </li>
-        </ul>
-      </nav>
-      <button class="nav-toggle-btn" aria-label="Toggle menu" data-nav-toggler>
-        <span class="line line-1"></span>
-        <span class="line line-2"></span>
-        <span class="line line-3"></span>
-      </button>
-      <label class="switch">
-        <input type="checkbox" id="themeToggle">
-        <span class="slider"></span>
-      </label>
-    </div>
-  </header>
-
-  
-  <!-- Hidden form to submit coin selection -->
-  <form id="coinForm" action="/index" method="post" style="display: none;">
-    <input type="hidden" name="selectCoin" id="selectCoin">
-  </form>
-
-
-<!-- DASHBOARD SECTION -->
-<div class="dashboard">
-  <div class="coin-info">
-    <div class="coin-header">
-      <h1 class="coin-title"><%= data.name %></h1>
-      <img src="<%= data.image.large %>" alt="<%= data.name %> Logo" class="coin-logo" />
-    </div>
-
-      <!-- Coin Data -->
-      <div class="coin-stats">
-        <div class="stat-box">
-          <h3>Price</h3>
-          <p>$<span class="price"><%- data.market_data.current_price["usd"] %></span></p>
-        </div>
-        <div class="stat-box">
-          <h3>24h High</h3>
-          <p>$<span class="high"><%- data.market_data.high_24h["usd"] %></span></p>
-        </div>
-        <div class="stat-box">
-          <h3>24h Low</h3>
-          <p>$<span class="low"><%- data.market_data.low_24h["usd"] %></span></p>
-        </div>
-        <div class="stat-box">
-          <h3>7 Days Change</h3>
-          <p><span class="change"><%- data.market_data.price_change_percentage_7d_in_currency["usd"] %> %</span></p>
-        </div>
-      </div>
-
-      <div>
-        <p>positive sentiments: <%- data.sentiment_votes_up_percentage %> %</p>
-      </div>
-      <div>
-        <p>negative sentiments: <%- data.sentiment_votes_down_percentage %> %</p>
-      </div>
-    </div>
-  </div>
-
-  <!-- MARKET SECTION -->
-  <section class="section market" aria-label="market update" data-section>
-    <div class="container">
-
-      <div class="title-wrapper">
-        <h2 class="h2 section-title">Market Update</h2>
-
-        <a href="#" class="btn-link">See All Coins</a>
-      </div>
-
-      <div class="market-tab">
-        <table class="market-table">
-
-          <thead class="table-head">
-
-            <tr class="table-row table-title">
-
-              <th class="table-heading"></th>
-
-              <th class="table-heading" scope="col">#</th>
-
-              <th class="table-heading" scope="col">Name</th>
-
-              <th class="table-heading" scope="col">Last Price</th>
-
-              <th class="table-heading" scope="col">24h %</th>
-
-              <th class="table-heading" scope="col">Market Cap</th>
-
-              <th class="table-heading" scope="col">Last 7 Days</th>
-
-              <th class="table-heading"></th>
-
-            </tr>
-
-          </thead>
-
-          <tbody class="table-body">
-
-            <tr class="table-row">
-
-              <td class="table-data">
-                <button class="add-to-fav" aria-label="Add to favourite" data-add-to-fav>
-                  <ion-icon name="star-outline" aria-hidden="true" class="icon-outline"></ion-icon>
-                  <ion-icon name="star" aria-hidden="true" class="icon-fill"></ion-icon>
-                </button>
-              </td>
-
-              <th class="table-data rank" scope="row">1</th>
-
-              <td class="table-data">
-                <div class="wrapper">
-                  <img src="./coin-1.svg" width="20" height="20" alt="Bitcoin logo" class="img">
-
-                  <h3>
-                    <a href="#" class="coin-name" data-coin="bitcoin" onclick="selectCoin('bitcoin')">Bitcoin <span class="span">BTC</span></a>
-                  </h3>
-                </div>
-              </td>
-
-              <td class="table-data last-price">$<%- data.market_data.current_price["usd"] %>.00</td>
-
-              <td class="table-data last-update green"><%- data.market_data.price_change_percentage_7d_in_currency["usd"] %> %</td>
-
-              <td class="table-data market-cap">$880,423,640,582</td>
-
-              <td class="table-data">
-                <img src="./chart-1.svg" width="100" height="40" alt="profit chart" class="chart">
-              </td>
-
-              <td class="table-data">
-                <button class="btn btn-outline">Trade</button>
-              </td>
-
-            </tr>
-
-            <tr class="table-row">
-
-              <td class="table-data">
-                <button class="add-to-fav" aria-label="Add to favourite" data-add-to-fav>
-                  <ion-icon name="star-outline" aria-hidden="true" class="icon-outline"></ion-icon>
-                  <ion-icon name="star" aria-hidden="true" class="icon-fill"></ion-icon>
-                </button>
-              </td>
-
-              <th class="table-data rank" scope="row">2</th>
-
-              <td class="table-data">
-                <div class="wrapper">
-                  <img src="./coin-2.svg" width="20" height="20" alt="Ethereum logo" class="img">
-
-                  <h3>
-                    <a href="#" class="coin-name" data-coin="ethereum" onclick="selectCoin('ethereum')">Ethereum <span class="span">ETH</span></a>
-                  </h3>
-                </div>
-              </td>
-
-              <td class="table-data last-price">$56,623.54</td>
-
-              <td class="table-data last-update red">-5.12%</td>
-
-              <td class="table-data market-cap">$880,423,640,582</td>
-
-              <td class="table-data">
-                <img src="./chart-2.svg" width="100" height="40" alt="loss chart" class="chart">
-              </td>
-
-              <td class="table-data">
-                <button class="btn btn-outline">Trade</button>
-              </td>
-
-            </tr>
-
-            <tr class="table-row">
-
-              <td class="table-data">
-                <button class="add-to-fav" aria-label="Add to favourite" data-add-to-fav>
-                  <ion-icon name="star-outline" aria-hidden="true" class="icon-outline"></ion-icon>
-                  <ion-icon name="star" aria-hidden="true" class="icon-fill"></ion-icon>
-                </button>
-              </td>
-
-              <th class="table-data rank" scope="row">3</th>
-
-              <td class="table-data">
-                <div class="wrapper">
-                  <img src="./coin-3.svg" width="20" height="20" alt="Tether logo" class="img">
-
-                  <h3>
-                    <a href="#" class="coin-name"data-coin="tether" onclick="selectCoin('tether')">Tether <span class="span">USDT/USD</span></a>
-                  </h3>
-                </div>
-              </td>
-
-              <td class="table-data last-price">$56,623.54</td>
-
-              <td class="table-data last-update green">+1.45%</td>
-
-              <td class="table-data market-cap">$880,423,640,582</td>
-
-              <td class="table-data">
-                <img src="./chart-1.svg" width="100" height="40" alt="profit chart" class="chart">
-              </td>
-
-              <td class="table-data">
-                <button class="btn btn-outline">Trade</button>
-              </td>
-
-            </tr>
-
-            <tr class="table-row">
-
-              <td class="table-data">
-                <button class="add-to-fav" aria-label="Add to favourite" data-add-to-fav>
-                  <ion-icon name="star-outline" aria-hidden="true" class="icon-outline"></ion-icon>
-                  <ion-icon name="star" aria-hidden="true" class="icon-fill"></ion-icon>
-                </button>
-              </td>
-
-              <th class="table-data rank" scope="row">4</th>
-
-              <td class="table-data">
-                <div class="wrapper">
-                  <img src="./coin-4.svg" width="20" height="20" alt="BNB logo" class="img">
-
-                  <h3>
-                    <a href="#" class="coin-name"data-coin="binancecoin" onclick="selectCoin('binancecoin')">BNB <span class="span">BNB/USD</span></a>
-                  </h3>
-                </div>
-              </td>
-
-              <td class="table-data last-price">$56,623.54</td>
-
-              <td class="table-data last-update red">-3.75%%</td>
-
-              <td class="table-data market-cap">$880,423,640,582</td>
-
-              <td class="table-data">
-                <img src="./chart-2.svg" width="100" height="40" alt="loss chart" class="chart">
-              </td>
-
-              <td class="table-data">
-                <button class="btn btn-outline">Trade</button>
-              </td>
-
-            </tr>
-
-            <tr class="table-row">
-
-              <td class="table-data">
-                <button class="add-to-fav" aria-label="Add to favourite" data-add-to-fav>
-                  <ion-icon name="star-outline" aria-hidden="true" class="icon-outline"></ion-icon>
-                  <ion-icon name="star" aria-hidden="true" class="icon-fill"></ion-icon>
-                </button>
-              </td>
-
-              <th class="table-data rank" scope="row">5</th>
-
-              <td class="table-data">
-                <div class="wrapper">
-                  <img src="./coin-5.svg" width="20" height="20" alt="Solana logo" class="img">
-
-                  <h3>
-                    <a href="#" class="coin-name"data-coin="solana" onclick="selectCoin('solana')">Solana <span class="span">SOL</span></a>
-                  </h3>
-                </div>
-              </td>
-
-              <td class="table-data last-price">$56,623.54</td>
-
-              <td class="table-data last-update green">+1.45%</td>
-
-              <td class="table-data market-cap">$880,423,640,582</td>
-
-              <td class="table-data">
-                <img src="./chart-1.svg" width="100" height="40" alt="profit chart" class="chart">
-              </td>
-
-              <td class="table-data">
-                <button class="btn btn-outline">Trade</button>
-              </td>
-
-            </tr>
-
-            <tr class="table-row">
-
-              <td class="table-data">
-                <button class="add-to-fav" aria-label="Add to favourite" data-add-to-fav>
-                  <ion-icon name="star-outline" aria-hidden="true" class="icon-outline"></ion-icon>
-                  <ion-icon name="star" aria-hidden="true" class="icon-fill"></ion-icon>
-                </button>
-              </td>
-
-              <th class="table-data rank" scope="row">6</th>
-
-              <td class="table-data">
-                <div class="wrapper">
-                  <img src="./coin-6.svg" width="20" height="20" alt="XRP logo" class="img">
-
-                  <h3>
-                    <a href="#" class="coin-name"data-coin="ripple" onclick="selectCoin('ripple')">XRP <span class="span">XRP</span></a>
-                  </h3>
-                </div>
-              </td>
-
-              <td class="table-data last-price">$56,623.54</td>
-
-              <td class="table-data last-update red">-2.22%</td>
-
-              <td class="table-data market-cap">$880,423,640,582</td>
-
-              <td class="table-data">
-                <img src="./chart-2.svg" width="100" height="40" alt="loss chart" class="chart">
-              </td>
-
-              <td class="table-data">
-                <button class="btn btn-outline">Trade</button>
-              </td>
-
-            </tr>
-
-            <tr class="table-row">
-
-              <td class="table-data">
-                <button class="add-to-fav" aria-label="Add to favourite" data-add-to-fav>
-                  <ion-icon name="star-outline" aria-hidden="true" class="icon-outline"></ion-icon>
-                  <ion-icon name="star" aria-hidden="true" class="icon-fill"></ion-icon>
-                </button>
-              </td>
-
-              <th class="table-data rank" scope="row">7</th>
-
-              <td class="table-data">
-                <div class="wrapper">
-                  <img src="./coin-7.svg" width="20" height="20" alt="Cardano logo" class="img">
-
-                  <h3>
-                    <a href="#" class="coin-name"data-coin="cardano" onclick="selectCoin('cardano')">Cardano <span class="span">ADA</span></a>
-                  </h3>
-                </div>
-              </td>
-
-              <td class="table-data last-price">$56,623.54</td>
-
-              <td class="table-data last-update green">+0.8%</td>
-
-              <td class="table-data market-cap">$880,423,640,582</td>
-
-              <td class="table-data">
-                <img src="./chart-1.svg" width="100" height="40" alt="profit chart" class="chart">
-              </td>
-
-              <td class="table-data">
-                <button class="btn btn-outline">Trade</button>
-              </td>
-
-            </tr>
-
-            <tr class="table-row">
-
-              <td class="table-data">
-                <button class="add-to-fav" aria-label="Add to favourite" data-add-to-fav>
-                  <ion-icon name="star-outline" aria-hidden="true" class="icon-outline"></ion-icon>
-                  <ion-icon name="star" aria-hidden="true" class="icon-fill"></ion-icon>
-                </button>
-              </td>
-
-              <th class="table-data rank" scope="row">8</th>
-
-              <td class="table-data">
-                <div class="wrapper">
-                  <img src="./coin-8.svg" width="20" height="20" alt="Avalanche logo" class="img">
-
-                  <h3>
-                    <a href="#" class="coin-name"data-coin="avalanche-2" onclick="selectCoin('avalanche-2')">Avalanche <span class="span">AVAX</span></a>
-                  </h3>
-                </div>
-              </td>
-
-              <td class="table-data last-price">$56,623.54</td>
-
-              <td class="table-data last-update green">+1.41%</td>
-
-              <td class="table-data market-cap">$880,423,640,582</td>
-
-              <td class="table-data">
-                <img src="./chart-1.svg" width="100" height="40" alt="profit chart" class="chart">
-              </td>
-
-              <td class="table-data">
-                <button class="btn btn-outline">Trade</button>
-              </td>
-
-            </tr>
-            <tr class="table-row">
-
-              <td class="table-data">
-                <button class="add-to-fav" aria-label="Add to favourite" data-add-to-fav>
-                  <ion-icon name="star-outline" aria-hidden="true" class="icon-outline"></ion-icon>
-                  <ion-icon name="star" aria-hidden="true" class="icon-fill"></ion-icon>
-                </button>
-              </td>
-
-              <th class="table-data rank" scope="row">9</th>
-
-              <td class="table-data">
-                <div class="wrapper">
-                  <img src="./coin-8.svg" width="20" height="20" alt="Avalanche logo" class="img">
-
-                  <h3>
-                    <a href="#" class="coin-name"data-coin="dogecoin" onclick="selectCoin('dogecoin')">Dogecoin <span class="span">DOGE</span></a>
-                  </h3>
-                </div>
-              </td>
-
-              <td class="table-data last-price">$56,623.54</td>
-
-              <td class="table-data last-update green">+1.41%</td>
-
-              <td class="table-data market-cap">$880,423,640,582</td>
-
-              <td class="table-data">
-                <img src="./chart-1.svg" width="100" height="40" alt="profit chart" class="chart">
-              </td>
-
-              <td class="table-data">
-                <button class="btn btn-outline">Trade</button>
-              </td>
-
-            </tr>
-            <tr class="table-row">
-
-              <td class="table-data">
-                <button class="add-to-fav" aria-label="Add to favourite" data-add-to-fav>
-                  <ion-icon name="star-outline" aria-hidden="true" class="icon-outline"></ion-icon>
-                  <ion-icon name="star" aria-hidden="true" class="icon-fill"></ion-icon>
-                </button>
-              </td>
-
-              <th class="table-data rank" scope="row">10</th>
-
-              <td class="table-data">
-                <div class="wrapper">
-                  <img src="./coin-8.svg" width="20" height="20" alt="Avalanche logo" class="img">
-
-                  <h3>
-                    <a href="#" class="coin-name" data-coin="polkadot" onclick="selectCoin('polkadot')">Polkadot <span class="span">DOT</span></a>
-                  </h3>
-                </div>
-              </td>
-
-              <td class="table-data last-price">$56,623.54</td>
-
-              <td class="table-data last-update green">+1.41%</td>
-
-              <td class="table-data market-cap">$880,423,640,582</td>
-
-              <td class="table-data">
-                <img src="./chart-1.svg" width="100" height="40" alt="profit chart" class="chart">
-              </td>
-
-              <td class="table-data">
-                <button class="btn btn-outline">Trade</button>
-              </td>
-
-            </tr>
-
-            <tr class="table-row">
-
-              <td class="table-data">
-                <button class="add-to-fav" aria-label="Add to favourite" data-add-to-fav>
-                  <ion-icon name="star-outline" aria-hidden="true" class="icon-outline"></ion-icon>
-                  <ion-icon name="star" aria-hidden="true" class="icon-fill"></ion-icon>
-                </button>
-              </td>
-
-              <th class="table-data rank" scope="row">11</th>
-
-              <td class="table-data">
-                <div class="wrapper">
-                  <img src="./coin-8.svg" width="20" height="20" alt="Avalanche logo" class="img">
-
-                  <h3>
-                    <a href="#" class="coin-name" data-coin="litecoin" onclick="selectCoin('litecoin')">Litecoin <span class="span">LTC</span></a>
-                  </h3>
-                </div>
-              </td>
-
-              <td class="table-data last-price">$56,623.54</td>
-
-              <td class="table-data last-update green">+1.41%</td>
-
-              <td class="table-data market-cap">$880,423,640,582</td>
-
-              <td class="table-data">
-                <img src="./chart-1.svg" width="100" height="40" alt="profit chart" class="chart">
-              </td>
-
-              <td class="table-data">
-                <button class="btn btn-outline">Trade</button>
-              </td>
-
-            </tr>
-
-            <tr class="table-row">
-
-              <td class="table-data">
-                <button class="add-to-fav" aria-label="Add to favourite" data-add-to-fav>
-                  <ion-icon name="star-outline" aria-hidden="true" class="icon-outline"></ion-icon>
-                  <ion-icon name="star" aria-hidden="true" class="icon-fill"></ion-icon>
-                </button>
-              </td>
-
-              <th class="table-data rank" scope="row">12</th>
-
-              <td class="table-data">
-                <div class="wrapper">
-                  <img src="./coin-8.svg" width="20" height="20" alt="Avalanche logo" class="img">
-
-                  <h3>
-                    <a href="#" class="coin-name"data-coin="decentraland" onclick="selectCoin('decentraland')">Decentraland <span class="span">MANA</span></a>
-                  </h3>
-                </div>
-              </td>
-
-              <td class="table-data last-price">$56,623.54</td>
-
-              <td class="table-data last-update green">+1.41%</td>
-
-              <td class="table-data market-cap">$880,423,640,582</td>
-
-              <td class="table-data">
-                <img src="./chart-1.svg" width="100" height="40" alt="profit chart" class="chart">
-              </td>
-
-              <td class="table-data">
-                <button class="btn btn-outline">Trade</button>
-              </td>
-
-            </tr>
-
-
-
-          </tbody>
-
-        </table>
-
-      </div>
-
-    </div>
-  </section>
-
-  <!-- Footer Section -->
-  <footer class="footer">
-    <div class="footer-top" data-section>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CryptoPulse Dashboard</title>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <style>
+    /* From Uiverse.io by alexruix */
+
+    /* The switch - the box around the slider */
+    .switch {
+      font-size: 17px;
+      position: relative;
+      display: inline-block;
+      width: 3.5em;
+      height: 2em;
+    }
+
+    /* Hide default HTML checkbox */
+    .switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    /* The slider */
+    .slider {
+      background: #28096b;
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: var(--background);
+      transition: 0.5s;
+      border-radius: 30px;
+    }
+
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 1.4em;
+      width: 1.4em;
+      border-radius: 50%;
+      left: 10%;
+      bottom: 15%;
+      box-shadow: inset 8px -4px 0px 0px #fff000;
+      background: var(--background);
+      transition: 0.5s;
+    }
+
+    input:checked + .slider {
+      background-color: #522ba7;
+    }
+
+    input:checked + .slider:before {
+      transform: translateX(100%);
+      box-shadow: inset 15px -4px 0px 15px #fff000;
+    }
+  </style>
+
+  <body>
+    <!-- HEADER SECTION -->
+    <header class="header" data-header>
       <div class="container">
-        <div class="footer-brand">
-          <a href="/" class="logo">
-            <img src="./logo2.png" width="32" height="32" alt="CryptoPulse logo">
-            <span style="color:rgb(202, 154, 248);">Crypto</span><span style="color:rgb(225, 182, 89);">Pulse</span>
-          </a>
-          <h2 class="footer-title">Let's talk! 🤙</h2>
-          <a href="tel:+123456789101" class="footer-contact-link">+12 345 678 9101</a>
-          <a href="mailto:hello.cryptex@gmail.com" class="footer-contact-link">hello.cryptex@gmail.com</a>
-          <address class="footer-contact-link">
-            Cecilia Chapman 711-2880 Nulla St. Mankato Mississippi 96522
-          </address>
+        <a href="/" class="logo">
+          <img
+            src="./logo2.png"
+            width="32"
+            height="32"
+            alt="CryptoPulse logo"
+          />
+          <span style="color: rgb(202, 154, 248)">Crypto</span
+          ><span style="color: rgb(225, 182, 89)">Pulse</span>
+        </a>
+        <nav class="navbar" data-navbar>
+          <ul class="navbar-list">
+            <li class="navbar-item">
+              <a href="/index" class="navbar-link" data-nav-link
+                >Cryptocurrency</a
+              >
+            </li>
+            <li class="navbar-item">
+              <a href="/about" class="navbar-link" data-nav-link>About us</a>
+            </li>
+          </ul>
+        </nav>
+        <button
+          class="nav-toggle-btn"
+          aria-label="Toggle menu"
+          data-nav-toggler
+        >
+          <span class="line line-1"></span>
+          <span class="line line-2"></span>
+          <span class="line line-3"></span>
+        </button>
+        <label class="switch">
+          <input type="checkbox" id="themeToggle" />
+          <span class="slider"></span>
+        </label>
+      </div>
+    </header>
+
+    <!-- Hidden form to submit coin selection -->
+    <form id="coinForm" action="/index" method="post" style="display: none">
+      <input type="hidden" name="selectCoin" id="selectCoin" />
+    </form>
+
+    <!-- DASHBOARD SECTION -->
+    <div class="dashboard">
+      <div class="coin-info">
+        <div class="coin-header">
+          <h1 class="coin-title"><%= data.name %></h1>
+          <img
+            src="<%= data.image.small %>"
+            alt="<%= data.name %> Logo"
+            class="coin-logo"
+          />
         </div>
-        <ul class="footer-list">
-          <li>
-            <p class="footer-list-title">Products</p>
-          </li>
-          <li>
-            <a href="#" class="footer-link">Spot</a>
-          </li>
-          <li>
-            <a href="#" class="footer-link">Inverse Perpetual</a>
-          </li>
-          <li>
-            <a href="#" class="footer-link">USDT Perpetual</a>
-          </li>
-          <li>
-            <a href="#" class="footer-link">Exchange</a>
-          </li>
-          <li>
-            <a href="#" class="footer-link">Launchpad</a>
-          </li>
-          <li>
-            <a href="#" class="footer-link">Binance Pay</a>
-          </li>
-        </ul>
-        <ul class="footer-list">
-          <li>
-            <p class="footer-list-title">Services</p>
-          </li>
-          <li>
-            <a href="#" class="footer-link">Buy Crypto</a>
-          </li>
-          <li>
-            <a href="#" class="footer-link">Markets</a>
-          </li>
-          <li>
-            <a href="#" class="footer-link">Tranding Fee</a>
-          </li>
-          <li>
-            <a href="#" class="footer-link">Affiliate Program</a>
-          </li>
-          <li>
-            <a href="#" class="footer-link">Referral Program</a>
-          </li>
-          <li>
-            <a href="#" class="footer-link">API</a>
-          </li>
-        </ul>
-        <ul class="footer-list">
-          <li>
-            <p class="footer-list-title">Support</p>
-          </li>
-          <li>
-            <a href="#" class="footer-link">Bybit Learn</a>
-          </li>
-          <li>
-            <a href="#" class="footer-link">Help Center</a>
-          </li>
-          <li>
-            <a href="#" class="footer-link">User Feedback</a>
-          </li>
-          <li>
-            <a href="#" class="footer-link">Submit a request</a>
-          </li>
-          <li>
-            <a href="#" class="footer-link">API Documentation</a>
-          </li>
-          <li>
-            <a href="#" class="footer-link">Trading Rules</a>
-          </li>
-        </ul>
-        <ul class="footer-list">
-          <li>
-            <p class="footer-list-title">About Us</p>
-          </li>
-          <li>
-            <a href="#" class="footer-link">About Bybit</a>
-          </li>
-          <li>
-            <a href="#" class="footer-link">Authenticity Check</a>
-          </li>
-          <li>
-            <a href="#" class="footer-link">Careers</a>
-          </li>
-          <li>
-            <a href="#" class="footer-link">Business Contacts</a>
-          </li>
-          <li>
-            <a href="#" class="footer-link">Blog</a>
-          </li>
-        </ul>
+
+        <!-- Coin Data -->
+        <div class="coin-stats">
+          <div class="stat-box">
+            <h3>Price</h3>
+            <p>
+              $<span class="price"
+                ><%- data.market_data.current_price["usd"] %></span
+              >
+            </p>
+          </div>
+          <div class="stat-box">
+            <h3>24h High</h3>
+            <p>
+              $<span class="high"><%- data.market_data.high_24h["usd"] %></span>
+            </p>
+          </div>
+          <div class="stat-box">
+            <h3>24h Low</h3>
+            <p>
+              $<span class="low"><%- data.market_data.low_24h["usd"] %></span>
+            </p>
+          </div>
+          <div class="stat-box">
+            <h3>7 Days Change</h3>
+            <p>
+              <span class="change"
+                ><%-
+                data.market_data.price_change_percentage_7d_in_currency["usd"]
+                %> %</span
+              >
+            </p>
+          </div>
+        </div>
+
+        <div>
+          <p>
+            positive sentiments: <%- data.sentiment_votes_up_percentage %> %
+          </p>
+        </div>
+        <div>
+          <p>
+            negative sentiments: <%- data.sentiment_votes_down_percentage %> %
+          </p>
+        </div>
       </div>
     </div>
-  </footer>
 
-  <script src="./script.js"></script>
-</body>
+    <!-- MARKET SECTION -->
+    <section class="section market" aria-label="market update" data-section>
+      <div class="container">
+        <div class="title-wrapper">
+          <h2 class="h2 section-title">Market Update</h2>
 
-<style>
-  /* Dashboard Section */
-  .dashboard {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 60px 20px;
-    background: #f4f6f9;
-  }
+          <a href="#" class="btn-link">See All Coins</a>
+        </div>
 
-  .coin-info {
-    background: #fff;
-    padding: 40px 30px;
-    border-radius: 15px;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    max-width: 900px;
-    transition: all 0.3s ease;
-  }
+        <div class="market-tab">
+          <table class="market-table">
+            <thead class="table-head">
+              <tr class="table-row table-title">
+                <th class="table-heading"></th>
 
-  .coin-info:hover {
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
-    transform: translateY(-5px);
-  }
+                <th class="table-heading" scope="col">#</th>
 
-  .coin-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 30px;
-  }
+                <th class="table-heading" scope="col">Name</th>
 
-  .coin-title {
-    font-size: 2.2rem;
-    font-weight: bold;
-    color: #333;
-  }
+                <th class="table-heading" scope="col">Last Price</th>
 
-  .coin-logo {
-    width: 60px;
-    height: 60px;
-  }
+                <th class="table-heading" scope="col">24h %</th>
 
-  .coin-stats {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 40px;
-    gap: 20px;
-  }
+                <th class="table-heading" scope="col">Market Cap</th>
 
-  .stat-box {
-    background: #fafafa;
-    padding: 25px 20px;
-    border-radius: 12px;
-    width: 22%;
-    text-align: center;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-    transition: all 0.3s ease;
-  }
+                <th class="table-heading" scope="col">Last 7 Days</th>
 
-  .stat-box:hover {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transform: translateY(-4px);
-  }
+                <th class="table-heading"></th>
+              </tr>
+            </thead>
 
-  .stat-box h3 {
-    font-size: 1.4rem;
-    color: #333;
-    margin-bottom: 15px;
-  }
+            <tbody class="table-body">
+              <tr class="table-row">
+                <td class="table-data">
+                  <button
+                    class="add-to-fav"
+                    aria-label="Add to favourite"
+                    data-add-to-fav
+                  >
+                    <ion-icon
+                      name="star-outline"
+                      aria-hidden="true"
+                      class="icon-outline"
+                    ></ion-icon>
+                    <ion-icon
+                      name="star"
+                      aria-hidden="true"
+                      class="icon-fill"
+                    ></ion-icon>
+                  </button>
+                </td>
 
-  .stat-box p {
-    font-size: 1.7rem;
-    font-weight: bold;
-    color: #333;
-  }
+                <th class="table-data rank" scope="row">1</th>
 
-  .sentiments {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 40px;
-    gap: 20px;
-  }
+                <td class="table-data">
+                  <div class="wrapper">
+                    <img
+                      src="./coin-1.svg"
+                      width="20"
+                      height="20"
+                      alt="Bitcoin logo"
+                      class="img"
+                    />
 
-  .sentiment-box {
-    background: #e9f7f7;
-    padding: 20px 15px;
-    border-radius: 12px;
-    width: 48%;
-    text-align: center;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-    transition: all 0.3s ease;
-  }
+                    <h3>
+                      <a
+                        href="#"
+                        class="coin-name"
+                        data-coin="bitcoin"
+                        onclick="selectCoin('bitcoin')"
+                        >Bitcoin <span class="span">BTC</span></a
+                      >
+                    </h3>
+                  </div>
+                </td>
 
-  .sentiment-box:hover {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transform: translateY(-4px);
-  }
+                <td class="table-data last-price">
+                  $<%- data.market_data.current_price["usd"] %>.00
+                </td>
 
-  .sentiment-box h3 {
-    font-size: 1.4rem;
-    color: #333;
-    margin-bottom: 10px;
-  }
+                <td class="table-data last-update green">
+                  <%-
+                  data.market_data.price_change_percentage_7d_in_currency["usd"]
+                  %> %
+                </td>
 
-  .sentiment-box p {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #333;
-  }
+                <td class="table-data market-cap">$880,423,640,582</td>
 
-  /* Specific Styles for Stats & Sentiments */
-  .price,
-  .high,
-  .low,
-  .change {
-    color: #00b8d4;
-  }
+                <td class="table-data">
+                  <img
+                    src="./chart-1.svg"
+                    width="100"
+                    height="40"
+                    alt="profit chart"
+                    class="chart"
+                  />
+                </td>
 
-  .price {
-    font-size: 1.8rem;
-    color: #008080;
-  }
+                <td class="table-data">
+                  <button class="btn btn-outline">Trade</button>
+                </td>
+              </tr>
 
-  .high,
-  .low {
-    font-size: 1.6rem;
-    color: #333;
-  }
+              <tr class="table-row">
+                <td class="table-data">
+                  <button
+                    class="add-to-fav"
+                    aria-label="Add to favourite"
+                    data-add-to-fav
+                  >
+                    <ion-icon
+                      name="star-outline"
+                      aria-hidden="true"
+                      class="icon-outline"
+                    ></ion-icon>
+                    <ion-icon
+                      name="star"
+                      aria-hidden="true"
+                      class="icon-fill"
+                    ></ion-icon>
+                  </button>
+                </td>
 
-  .change {
-    font-size: 1.6rem;
-    color: #ff6347;
-  }
+                <th class="table-data rank" scope="row">2</th>
 
-  /* Responsive Design */
-  @media (max-width: 768px) {
-    .coin-stats,
-    .sentiments {
-      flex-direction: column;
+                <td class="table-data">
+                  <div class="wrapper">
+                    <img
+                      src="./coin-2.svg"
+                      width="20"
+                      height="20"
+                      alt="Ethereum logo"
+                      class="img"
+                    />
+
+                    <h3>
+                      <a
+                        href="#"
+                        class="coin-name"
+                        data-coin="ethereum"
+                        onclick="selectCoin('ethereum')"
+                        >Ethereum <span class="span">ETH</span></a
+                      >
+                    </h3>
+                  </div>
+                </td>
+
+                <td class="table-data last-price">$56,623.54</td>
+
+                <td class="table-data last-update red">-5.12%</td>
+
+                <td class="table-data market-cap">$880,423,640,582</td>
+
+                <td class="table-data">
+                  <img
+                    src="./chart-2.svg"
+                    width="100"
+                    height="40"
+                    alt="loss chart"
+                    class="chart"
+                  />
+                </td>
+
+                <td class="table-data">
+                  <button class="btn btn-outline">Trade</button>
+                </td>
+              </tr>
+
+              <tr class="table-row">
+                <td class="table-data">
+                  <button
+                    class="add-to-fav"
+                    aria-label="Add to favourite"
+                    data-add-to-fav
+                  >
+                    <ion-icon
+                      name="star-outline"
+                      aria-hidden="true"
+                      class="icon-outline"
+                    ></ion-icon>
+                    <ion-icon
+                      name="star"
+                      aria-hidden="true"
+                      class="icon-fill"
+                    ></ion-icon>
+                  </button>
+                </td>
+
+                <th class="table-data rank" scope="row">3</th>
+
+                <td class="table-data">
+                  <div class="wrapper">
+                    <img
+                      src="./coin-3.svg"
+                      width="20"
+                      height="20"
+                      alt="Tether logo"
+                      class="img"
+                    />
+
+                    <h3>
+                      <a
+                        href="#"
+                        class="coin-name"
+                        data-coin="tether"
+                        onclick="selectCoin('tether')"
+                        >Tether <span class="span">USDT/USD</span></a
+                      >
+                    </h3>
+                  </div>
+                </td>
+
+                <td class="table-data last-price">$56,623.54</td>
+
+                <td class="table-data last-update green">+1.45%</td>
+
+                <td class="table-data market-cap">$880,423,640,582</td>
+
+                <td class="table-data">
+                  <img
+                    src="./chart-1.svg"
+                    width="100"
+                    height="40"
+                    alt="profit chart"
+                    class="chart"
+                  />
+                </td>
+
+                <td class="table-data">
+                  <button class="btn btn-outline">Trade</button>
+                </td>
+              </tr>
+
+              <tr class="table-row">
+                <td class="table-data">
+                  <button
+                    class="add-to-fav"
+                    aria-label="Add to favourite"
+                    data-add-to-fav
+                  >
+                    <ion-icon
+                      name="star-outline"
+                      aria-hidden="true"
+                      class="icon-outline"
+                    ></ion-icon>
+                    <ion-icon
+                      name="star"
+                      aria-hidden="true"
+                      class="icon-fill"
+                    ></ion-icon>
+                  </button>
+                </td>
+
+                <th class="table-data rank" scope="row">4</th>
+
+                <td class="table-data">
+                  <div class="wrapper">
+                    <img
+                      src="./coin-4.svg"
+                      width="20"
+                      height="20"
+                      alt="BNB logo"
+                      class="img"
+                    />
+
+                    <h3>
+                      <a
+                        href="#"
+                        class="coin-name"
+                        data-coin="binancecoin"
+                        onclick="selectCoin('binancecoin')"
+                        >BNB <span class="span">BNB/USD</span></a
+                      >
+                    </h3>
+                  </div>
+                </td>
+
+                <td class="table-data last-price">$56,623.54</td>
+
+                <td class="table-data last-update red">-3.75%%</td>
+
+                <td class="table-data market-cap">$880,423,640,582</td>
+
+                <td class="table-data">
+                  <img
+                    src="./chart-2.svg"
+                    width="100"
+                    height="40"
+                    alt="loss chart"
+                    class="chart"
+                  />
+                </td>
+
+                <td class="table-data">
+                  <button class="btn btn-outline">Trade</button>
+                </td>
+              </tr>
+
+              <tr class="table-row">
+                <td class="table-data">
+                  <button
+                    class="add-to-fav"
+                    aria-label="Add to favourite"
+                    data-add-to-fav
+                  >
+                    <ion-icon
+                      name="star-outline"
+                      aria-hidden="true"
+                      class="icon-outline"
+                    ></ion-icon>
+                    <ion-icon
+                      name="star"
+                      aria-hidden="true"
+                      class="icon-fill"
+                    ></ion-icon>
+                  </button>
+                </td>
+
+                <th class="table-data rank" scope="row">5</th>
+
+                <td class="table-data">
+                  <div class="wrapper">
+                    <img
+                      src="./coin-5.svg"
+                      width="20"
+                      height="20"
+                      alt="Solana logo"
+                      class="img"
+                    />
+
+                    <h3>
+                      <a
+                        href="#"
+                        class="coin-name"
+                        data-coin="solana"
+                        onclick="selectCoin('solana')"
+                        >Solana <span class="span">SOL</span></a
+                      >
+                    </h3>
+                  </div>
+                </td>
+
+                <td class="table-data last-price">$56,623.54</td>
+
+                <td class="table-data last-update green">+1.45%</td>
+
+                <td class="table-data market-cap">$880,423,640,582</td>
+
+                <td class="table-data">
+                  <img
+                    src="./chart-1.svg"
+                    width="100"
+                    height="40"
+                    alt="profit chart"
+                    class="chart"
+                  />
+                </td>
+
+                <td class="table-data">
+                  <button class="btn btn-outline">Trade</button>
+                </td>
+              </tr>
+
+              <tr class="table-row">
+                <td class="table-data">
+                  <button
+                    class="add-to-fav"
+                    aria-label="Add to favourite"
+                    data-add-to-fav
+                  >
+                    <ion-icon
+                      name="star-outline"
+                      aria-hidden="true"
+                      class="icon-outline"
+                    ></ion-icon>
+                    <ion-icon
+                      name="star"
+                      aria-hidden="true"
+                      class="icon-fill"
+                    ></ion-icon>
+                  </button>
+                </td>
+
+                <th class="table-data rank" scope="row">6</th>
+
+                <td class="table-data">
+                  <div class="wrapper">
+                    <img
+                      src="./coin-6.svg"
+                      width="20"
+                      height="20"
+                      alt="XRP logo"
+                      class="img"
+                    />
+
+                    <h3>
+                      <a
+                        href="#"
+                        class="coin-name"
+                        data-coin="ripple"
+                        onclick="selectCoin('ripple')"
+                        >XRP <span class="span">XRP</span></a
+                      >
+                    </h3>
+                  </div>
+                </td>
+
+                <td class="table-data last-price">$56,623.54</td>
+
+                <td class="table-data last-update red">-2.22%</td>
+
+                <td class="table-data market-cap">$880,423,640,582</td>
+
+                <td class="table-data">
+                  <img
+                    src="./chart-2.svg"
+                    width="100"
+                    height="40"
+                    alt="loss chart"
+                    class="chart"
+                  />
+                </td>
+
+                <td class="table-data">
+                  <button class="btn btn-outline">Trade</button>
+                </td>
+              </tr>
+
+              <tr class="table-row">
+                <td class="table-data">
+                  <button
+                    class="add-to-fav"
+                    aria-label="Add to favourite"
+                    data-add-to-fav
+                  >
+                    <ion-icon
+                      name="star-outline"
+                      aria-hidden="true"
+                      class="icon-outline"
+                    ></ion-icon>
+                    <ion-icon
+                      name="star"
+                      aria-hidden="true"
+                      class="icon-fill"
+                    ></ion-icon>
+                  </button>
+                </td>
+
+                <th class="table-data rank" scope="row">7</th>
+
+                <td class="table-data">
+                  <div class="wrapper">
+                    <img
+                      src="./coin-7.svg"
+                      width="20"
+                      height="20"
+                      alt="Cardano logo"
+                      class="img"
+                    />
+
+                    <h3>
+                      <a
+                        href="#"
+                        class="coin-name"
+                        data-coin="cardano"
+                        onclick="selectCoin('cardano')"
+                        >Cardano <span class="span">ADA</span></a
+                      >
+                    </h3>
+                  </div>
+                </td>
+
+                <td class="table-data last-price">$56,623.54</td>
+
+                <td class="table-data last-update green">+0.8%</td>
+
+                <td class="table-data market-cap">$880,423,640,582</td>
+
+                <td class="table-data">
+                  <img
+                    src="./chart-1.svg"
+                    width="100"
+                    height="40"
+                    alt="profit chart"
+                    class="chart"
+                  />
+                </td>
+
+                <td class="table-data">
+                  <button class="btn btn-outline">Trade</button>
+                </td>
+              </tr>
+
+              <tr class="table-row">
+                <td class="table-data">
+                  <button
+                    class="add-to-fav"
+                    aria-label="Add to favourite"
+                    data-add-to-fav
+                  >
+                    <ion-icon
+                      name="star-outline"
+                      aria-hidden="true"
+                      class="icon-outline"
+                    ></ion-icon>
+                    <ion-icon
+                      name="star"
+                      aria-hidden="true"
+                      class="icon-fill"
+                    ></ion-icon>
+                  </button>
+                </td>
+
+                <th class="table-data rank" scope="row">8</th>
+
+                <td class="table-data">
+                  <div class="wrapper">
+                    <img
+                      src="./coin-8.svg"
+                      width="20"
+                      height="20"
+                      alt="Avalanche logo"
+                      class="img"
+                    />
+
+                    <h3>
+                      <a
+                        href="#"
+                        class="coin-name"
+                        data-coin="avalanche-2"
+                        onclick="selectCoin('avalanche-2')"
+                        >Avalanche <span class="span">AVAX</span></a
+                      >
+                    </h3>
+                  </div>
+                </td>
+
+                <td class="table-data last-price">$56,623.54</td>
+
+                <td class="table-data last-update green">+1.41%</td>
+
+                <td class="table-data market-cap">$880,423,640,582</td>
+
+                <td class="table-data">
+                  <img
+                    src="./chart-1.svg"
+                    width="100"
+                    height="40"
+                    alt="profit chart"
+                    class="chart"
+                  />
+                </td>
+
+                <td class="table-data">
+                  <button class="btn btn-outline">Trade</button>
+                </td>
+              </tr>
+              <tr class="table-row">
+                <td class="table-data">
+                  <button
+                    class="add-to-fav"
+                    aria-label="Add to favourite"
+                    data-add-to-fav
+                  >
+                    <ion-icon
+                      name="star-outline"
+                      aria-hidden="true"
+                      class="icon-outline"
+                    ></ion-icon>
+                    <ion-icon
+                      name="star"
+                      aria-hidden="true"
+                      class="icon-fill"
+                    ></ion-icon>
+                  </button>
+                </td>
+
+                <th class="table-data rank" scope="row">9</th>
+
+                <td class="table-data">
+                  <div class="wrapper">
+                    <img
+                      src="./coin-9.svg"
+                      width="20"
+                      height="20"
+                      alt="Avalanche logo"
+                      class="img"
+                    />
+
+                    <h3>
+                      <a
+                        href="#"
+                        class="coin-name"
+                        data-coin="dogecoin"
+                        onclick="selectCoin('dogecoin')"
+                        >Dogecoin <span class="span">DOGE</span></a
+                      >
+                    </h3>
+                  </div>
+                </td>
+
+                <td class="table-data last-price">$56,623.54</td>
+
+                <td class="table-data last-update green">+1.41%</td>
+
+                <td class="table-data market-cap">$880,423,640,582</td>
+
+                <td class="table-data">
+                  <img
+                    src="./chart-1.svg"
+                    width="100"
+                    height="40"
+                    alt="profit chart"
+                    class="chart"
+                  />
+                </td>
+
+                <td class="table-data">
+                  <button class="btn btn-outline">Trade</button>
+                </td>
+              </tr>
+              <tr class="table-row">
+                <td class="table-data">
+                  <button
+                    class="add-to-fav"
+                    aria-label="Add to favourite"
+                    data-add-to-fav
+                  >
+                    <ion-icon
+                      name="star-outline"
+                      aria-hidden="true"
+                      class="icon-outline"
+                    ></ion-icon>
+                    <ion-icon
+                      name="star"
+                      aria-hidden="true"
+                      class="icon-fill"
+                    ></ion-icon>
+                  </button>
+                </td>
+
+                <th class="table-data rank" scope="row">10</th>
+
+                <td class="table-data">
+                  <div class="wrapper">
+                    <img
+                      src="./coin-10.svg"
+                      width="20"
+                      height="20"
+                      alt="Avalanche logo"
+                      class="img"
+                    />
+
+                    <h3>
+                      <a
+                        href="#"
+                        class="coin-name"
+                        data-coin="polkadot"
+                        onclick="selectCoin('polkadot')"
+                        >Polkadot <span class="span">DOT</span></a
+                      >
+                    </h3>
+                  </div>
+                </td>
+
+                <td class="table-data last-price">$56,623.54</td>
+
+                <td class="table-data last-update green">+1.41%</td>
+
+                <td class="table-data market-cap">$880,423,640,582</td>
+
+                <td class="table-data">
+                  <img
+                    src="./chart-1.svg"
+                    width="100"
+                    height="40"
+                    alt="profit chart"
+                    class="chart"
+                  />
+                </td>
+
+                <td class="table-data">
+                  <button class="btn btn-outline">Trade</button>
+                </td>
+              </tr>
+
+              <tr class="table-row">
+                <td class="table-data">
+                  <button
+                    class="add-to-fav"
+                    aria-label="Add to favourite"
+                    data-add-to-fav
+                  >
+                    <ion-icon
+                      name="star-outline"
+                      aria-hidden="true"
+                      class="icon-outline"
+                    ></ion-icon>
+                    <ion-icon
+                      name="star"
+                      aria-hidden="true"
+                      class="icon-fill"
+                    ></ion-icon>
+                  </button>
+                </td>
+
+                <th class="table-data rank" scope="row">11</th>
+
+                <td class="table-data">
+                  <div class="wrapper">
+                    <img
+                      src="./coin-11.svg"
+                      width="20"
+                      height="20"
+                      alt="Avalanche logo"
+                      class="img"
+                    />
+
+                    <h3>
+                      <a
+                        href="#"
+                        class="coin-name"
+                        data-coin="litecoin"
+                        onclick="selectCoin('litecoin')"
+                        >Litecoin <span class="span">LTC</span></a
+                      >
+                    </h3>
+                  </div>
+                </td>
+
+                <td class="table-data last-price">$56,623.54</td>
+
+                <td class="table-data last-update green">+1.41%</td>
+
+                <td class="table-data market-cap">$880,423,640,582</td>
+
+                <td class="table-data">
+                  <img
+                    src="./chart-1.svg"
+                    width="100"
+                    height="40"
+                    alt="profit chart"
+                    class="chart"
+                  />
+                </td>
+
+                <td class="table-data">
+                  <button class="btn btn-outline">Trade</button>
+                </td>
+              </tr>
+
+              <tr class="table-row">
+                <td class="table-data">
+                  <button
+                    class="add-to-fav"
+                    aria-label="Add to favourite"
+                    data-add-to-fav
+                  >
+                    <ion-icon
+                      name="star-outline"
+                      aria-hidden="true"
+                      class="icon-outline"
+                    ></ion-icon>
+                    <ion-icon
+                      name="star"
+                      aria-hidden="true"
+                      class="icon-fill"
+                    ></ion-icon>
+                  </button>
+                </td>
+
+                <th class="table-data rank" scope="row">12</th>
+
+                <td class="table-data">
+                  <div class="wrapper">
+                    <img
+                      src="./coin-12.svg"
+                      width="20"
+                      height="20"
+                      alt="Avalanche logo"
+                      class="img"
+                    />
+
+                    <h3>
+                      <a
+                        href="#"
+                        class="coin-name"
+                        data-coin="decentraland"
+                        onclick="selectCoin('decentraland')"
+                        >Decentraland <span class="span">MANA</span></a
+                      >
+                    </h3>
+                  </div>
+                </td>
+
+                <td class="table-data last-price">$56,623.54</td>
+
+                <td class="table-data last-update green">+1.41%</td>
+
+                <td class="table-data market-cap">$880,423,640,582</td>
+
+                <td class="table-data">
+                  <img
+                    src="./chart-1.svg"
+                    width="100"
+                    height="40"
+                    alt="profit chart"
+                    class="chart"
+                  />
+                </td>
+
+                <td class="table-data">
+                  <button class="btn btn-outline">Trade</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+      <div class="footer-top" data-section>
+        <div class="container">
+          <div class="footer-brand">
+            <a href="/" class="logo">
+              <img
+                src="./logo2.png"
+                width="32"
+                height="32"
+                alt="CryptoPulse logo"
+              />
+              <span style="color: rgb(202, 154, 248)">Crypto</span
+              ><span style="color: rgb(225, 182, 89)">Pulse</span>
+            </a>
+            <h2 class="footer-title">Let's talk! 🤙</h2>
+            <a href="tel:+123456789101" class="footer-contact-link"
+              >+12 345 678 9101</a
+            >
+            <a href="mailto:hello.cryptex@gmail.com" class="footer-contact-link"
+              >hello.cryptex@gmail.com</a
+            >
+            <address class="footer-contact-link">
+              Cecilia Chapman 711-2880 Nulla St. Mankato Mississippi 96522
+            </address>
+          </div>
+          <ul class="footer-list">
+            <li>
+              <p class="footer-list-title">Products</p>
+            </li>
+            <li>
+              <a href="#" class="footer-link">Spot</a>
+            </li>
+            <li>
+              <a href="#" class="footer-link">Inverse Perpetual</a>
+            </li>
+            <li>
+              <a href="#" class="footer-link">USDT Perpetual</a>
+            </li>
+            <li>
+              <a href="#" class="footer-link">Exchange</a>
+            </li>
+            <li>
+              <a href="#" class="footer-link">Launchpad</a>
+            </li>
+            <li>
+              <a href="#" class="footer-link">Binance Pay</a>
+            </li>
+          </ul>
+          <ul class="footer-list">
+            <li>
+              <p class="footer-list-title">Services</p>
+            </li>
+            <li>
+              <a href="#" class="footer-link">Buy Crypto</a>
+            </li>
+            <li>
+              <a href="#" class="footer-link">Markets</a>
+            </li>
+            <li>
+              <a href="#" class="footer-link">Tranding Fee</a>
+            </li>
+            <li>
+              <a href="#" class="footer-link">Affiliate Program</a>
+            </li>
+            <li>
+              <a href="#" class="footer-link">Referral Program</a>
+            </li>
+            <li>
+              <a href="#" class="footer-link">API</a>
+            </li>
+          </ul>
+          <ul class="footer-list">
+            <li>
+              <p class="footer-list-title">Support</p>
+            </li>
+            <li>
+              <a href="#" class="footer-link">Bybit Learn</a>
+            </li>
+            <li>
+              <a href="#" class="footer-link">Help Center</a>
+            </li>
+            <li>
+              <a href="#" class="footer-link">User Feedback</a>
+            </li>
+            <li>
+              <a href="#" class="footer-link">Submit a request</a>
+            </li>
+            <li>
+              <a href="#" class="footer-link">API Documentation</a>
+            </li>
+            <li>
+              <a href="#" class="footer-link">Trading Rules</a>
+            </li>
+          </ul>
+          <ul class="footer-list">
+            <li>
+              <p class="footer-list-title">About Us</p>
+            </li>
+            <li>
+              <a href="#" class="footer-link">About Bybit</a>
+            </li>
+            <li>
+              <a href="#" class="footer-link">Authenticity Check</a>
+            </li>
+            <li>
+              <a href="#" class="footer-link">Careers</a>
+            </li>
+            <li>
+              <a href="#" class="footer-link">Business Contacts</a>
+            </li>
+            <li>
+              <a href="#" class="footer-link">Blog</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+
+    <script src="./script.js"></script>
+  </body>
+
+  <style>
+    /* Dashboard Section */
+    .dashboard {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 60px 20px;
+      background: #f4f6f9;
+    }
+
+    .coin-info {
+      background: #fff;
+      padding: 40px 30px;
+      border-radius: 15px;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 900px;
+      transition: all 0.3s ease;
+    }
+
+    .coin-info:hover {
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+      transform: translateY(-5px);
+    }
+
+    .coin-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 30px;
+    }
+
+    .coin-title {
+      font-size: 2.2rem;
+      font-weight: bold;
+      color: #333;
+    }
+
+    .coin-logo {
+      width: 60px;
+      height: 60px;
+    }
+
+    .coin-stats {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 40px;
       gap: 20px;
     }
 
-    .stat-box,
-    .sentiment-box {
-      width: 100%;
+    .stat-box {
+      background: #fafafa;
+      padding: 25px 20px;
+      border-radius: 12px;
+      width: 22%;
+      text-align: center;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+      transition: all 0.3s ease;
     }
-  }
-</style>
 
+    .stat-box:hover {
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transform: translateY(-4px);
+    }
+
+    .stat-box h3 {
+      font-size: 1.4rem;
+      color: #333;
+      margin-bottom: 15px;
+    }
+
+    .stat-box p {
+      font-size: 1.7rem;
+      font-weight: bold;
+      color: #333;
+    }
+
+    .sentiments {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 40px;
+      gap: 20px;
+    }
+
+    .sentiment-box {
+      background: #e9f7f7;
+      padding: 20px 15px;
+      border-radius: 12px;
+      width: 48%;
+      text-align: center;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+      transition: all 0.3s ease;
+    }
+
+    .sentiment-box:hover {
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transform: translateY(-4px);
+    }
+
+    .sentiment-box h3 {
+      font-size: 1.4rem;
+      color: #333;
+      margin-bottom: 10px;
+    }
+
+    .sentiment-box p {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #333;
+    }
+
+    /* Specific Styles for Stats & Sentiments */
+    .price,
+    .high,
+    .low,
+    .change {
+      color: #00b8d4;
+    }
+
+    .price {
+      font-size: 1.8rem;
+      color: #008080;
+    }
+
+    .high,
+    .low {
+      font-size: 1.6rem;
+      color: #333;
+    }
+
+    .change {
+      font-size: 1.6rem;
+      color: #ff6347;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .coin-stats,
+      .sentiments {
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      .stat-box,
+      .sentiment-box {
+        width: 100%;
+      }
+    }
+  </style>
 </html>
