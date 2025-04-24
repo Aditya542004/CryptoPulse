@@ -171,6 +171,7 @@
     <!-- MARKET SECTION -->
     <section class="section market" aria-label="market update" data-section>
       <div class="container">
+
         <div class="title-wrapper">
           <h2 class="h2 section-title">Market Update</h2>
 
@@ -179,8 +180,11 @@
 
         <div class="market-tab">
           <table class="market-table">
+
             <thead class="table-head">
+
               <tr class="table-row table-title">
+
                 <th class="table-heading"></th>
 
                 <th class="table-heading" scope="col">#</th>
@@ -196,27 +200,19 @@
                 <th class="table-heading" scope="col">Last 7 Days</th>
 
                 <th class="table-heading"></th>
+
               </tr>
+
             </thead>
 
             <tbody class="table-body">
+
               <tr class="table-row">
+
                 <td class="table-data">
-                  <button
-                    class="add-to-fav"
-                    aria-label="Add to favourite"
-                    data-add-to-fav
-                  >
-                    <ion-icon
-                      name="star-outline"
-                      aria-hidden="true"
-                      class="icon-outline"
-                    ></ion-icon>
-                    <ion-icon
-                      name="star"
-                      aria-hidden="true"
-                      class="icon-fill"
-                    ></ion-icon>
+                  <button class="add-to-fav" aria-label="Add to favourite" data-add-to-fav>
+                    <ion-icon name="star-outline" aria-hidden="true" class="icon-outline"></ion-icon>
+                    <ion-icon name="star" aria-hidden="true" class="icon-fill"></ion-icon>
                   </button>
                 </td>
 
@@ -224,70 +220,44 @@
 
                 <td class="table-data">
                   <div class="wrapper">
-                    <img
-                      src="./coin-1.svg"
-                      width="20"
-                      height="20"
-                      alt="Bitcoin logo"
-                      class="img"
-                    />
+                    <img src="./coin-1.svg" width="20" height="20" alt="Bitcoin logo" class="img">
 
                     <h3>
                       <a
-                        href="#"
-                        class="coin-name"
-                        data-coin="bitcoin"
-                        onclick="selectCoin('bitcoin')"
-                        >Bitcoin <span class="span">BTC</span></a
-                      >
+                      href="/index"
+                      class="coin-name"
+                      data-coin="bitcoin"
+                      onclick="selectCoin('bitcoin')"
+                      >Bitcoin <span class="span">BTC</span></a
+                    >
                     </h3>
                   </div>
                 </td>
 
-                <td class="table-data last-price">
-                  $<%- data.market_data.current_price["usd"] %>.00
-                </td>
+<td class="table-data last-price"> $ <%- data.market_data.current_price["usd"] %>.00</td>
 
-                <td class="table-data last-update green">
-                  <%-
-                  data.market_data.price_change_percentage_7d_in_currency["usd"]
-                  %> %
-                </td>
 
-                <td class="table-data market-cap"><%- data.market_data.market_cap["usd"] %> %</td>
+<td class="table-data last-update green"> <%- data.market_data.price_change_percentage_7d_in_currency["usd"] %> %</td>
+
+
+                <td class="table-data market-cap"> <%- data.market_data.market_cap["usd"] %>$</td>
 
                 <td class="table-data">
-                  <img
-                    src="./chart-1.svg"
-                    width="100"
-                    height="40"
-                    alt="profit chart"
-                    class="chart"
-                  />
+                  <img src="./chart-1.svg" width="100" height="40" alt="profit chart" class="chart">
                 </td>
 
                 <td class="table-data">
                   <button class="btn btn-outline">Trade</button>
                 </td>
+
               </tr>
 
               <tr class="table-row">
+
                 <td class="table-data">
-                  <button
-                    class="add-to-fav"
-                    aria-label="Add to favourite"
-                    data-add-to-fav
-                  >
-                    <ion-icon
-                      name="star-outline"
-                      aria-hidden="true"
-                      class="icon-outline"
-                    ></ion-icon>
-                    <ion-icon
-                      name="star"
-                      aria-hidden="true"
-                      class="icon-fill"
-                    ></ion-icon>
+                  <button class="add-to-fav" aria-label="Add to favourite" data-add-to-fav>
+                    <ion-icon name="star-outline" aria-hidden="true" class="icon-outline"></ion-icon>
+                    <ion-icon name="star" aria-hidden="true" class="icon-fill"></ion-icon>
                   </button>
                 </td>
 
@@ -295,64 +265,42 @@
 
                 <td class="table-data">
                   <div class="wrapper">
-                    <img
-                      src="./coin-2.svg"
-                      width="20"
-                      height="20"
-                      alt="Ethereum logo"
-                      class="img"
-                    />
+                    <img src="./coin-2.svg" width="20" height="20" alt="Ethereum logo" class="img">
 
                     <h3>
                       <a
-                        href="#"
-                        class="coin-name"
-                        data-coin="ethereum"
-                        onclick="selectCoin('ethereum')"
-                        >Ethereum <span class="span">ETH</span></a
-                      >
+                      href="/index"
+                      class="coin-name"
+                      data-coin="ethereum"
+                      onclick="selectCoin('ethereum')"
+                      >Ethereum <span class="span">ETH</span></a
+                    >
                     </h3>
                   </div>
                 </td>
 
-                <td class="table-data last-price">$56,623.54</td>
+                <td class="table-data last-price">$1,737.43</td>
 
                 <td class="table-data last-update red">-5.12%</td>
 
-                <td class="table-data market-cap">$880,423,640,582</td>
+                <td class="table-data market-cap">$209,584,130,441</td>
 
                 <td class="table-data">
-                  <img
-                    src="./chart-2.svg"
-                    width="100"
-                    height="40"
-                    alt="loss chart"
-                    class="chart"
-                  />
+                  <img src="./chart-2.svg" width="100" height="40" alt="loss chart" class="chart">
                 </td>
 
                 <td class="table-data">
                   <button class="btn btn-outline">Trade</button>
                 </td>
+
               </tr>
 
               <tr class="table-row">
+
                 <td class="table-data">
-                  <button
-                    class="add-to-fav"
-                    aria-label="Add to favourite"
-                    data-add-to-fav
-                  >
-                    <ion-icon
-                      name="star-outline"
-                      aria-hidden="true"
-                      class="icon-outline"
-                    ></ion-icon>
-                    <ion-icon
-                      name="star"
-                      aria-hidden="true"
-                      class="icon-fill"
-                    ></ion-icon>
+                  <button class="add-to-fav" aria-label="Add to favourite" data-add-to-fav>
+                    <ion-icon name="star-outline" aria-hidden="true" class="icon-outline"></ion-icon>
+                    <ion-icon name="star" aria-hidden="true" class="icon-fill"></ion-icon>
                   </button>
                 </td>
 
@@ -360,64 +308,42 @@
 
                 <td class="table-data">
                   <div class="wrapper">
-                    <img
-                      src="./coin-3.svg"
-                      width="20"
-                      height="20"
-                      alt="Tether logo"
-                      class="img"
-                    />
+                    <img src="./coin-3.svg" width="20" height="20" alt="Tether logo" class="img">
 
                     <h3>
                       <a
-                        href="#"
-                        class="coin-name"
-                        data-coin="tether"
-                        onclick="selectCoin('tether')"
-                        >Tether <span class="span">USDT/USD</span></a
-                      >
+                      href="/index"
+                      class="coin-name"
+                      data-coin="tether"
+                      onclick="selectCoin('tether')"
+                      >Tether <span class="span">USDT/USD</span></a
+                    >
                     </h3>
                   </div>
                 </td>
 
-                <td class="table-data last-price">$56,623.54</td>
+                <td class="table-data last-price">$1.00</td>
 
                 <td class="table-data last-update green">+1.45%</td>
 
-                <td class="table-data market-cap">$880,423,640,582</td>
+                <td class="table-data market-cap">$145,665,668,903</td>
 
                 <td class="table-data">
-                  <img
-                    src="./chart-1.svg"
-                    width="100"
-                    height="40"
-                    alt="profit chart"
-                    class="chart"
-                  />
+                  <img src="./chart-1.svg" width="100" height="40" alt="profit chart" class="chart">
                 </td>
 
                 <td class="table-data">
                   <button class="btn btn-outline">Trade</button>
                 </td>
+
               </tr>
 
               <tr class="table-row">
+
                 <td class="table-data">
-                  <button
-                    class="add-to-fav"
-                    aria-label="Add to favourite"
-                    data-add-to-fav
-                  >
-                    <ion-icon
-                      name="star-outline"
-                      aria-hidden="true"
-                      class="icon-outline"
-                    ></ion-icon>
-                    <ion-icon
-                      name="star"
-                      aria-hidden="true"
-                      class="icon-fill"
-                    ></ion-icon>
+                  <button class="add-to-fav" aria-label="Add to favourite" data-add-to-fav>
+                    <ion-icon name="star-outline" aria-hidden="true" class="icon-outline"></ion-icon>
+                    <ion-icon name="star" aria-hidden="true" class="icon-fill"></ion-icon>
                   </button>
                 </td>
 
@@ -425,64 +351,42 @@
 
                 <td class="table-data">
                   <div class="wrapper">
-                    <img
-                      src="./coin-4.svg"
-                      width="20"
-                      height="20"
-                      alt="BNB logo"
-                      class="img"
-                    />
+                    <img src="./coin-4.svg" width="20" height="20" alt="BNB logo" class="img">
 
                     <h3>
                       <a
-                        href="#"
-                        class="coin-name"
-                        data-coin="binancecoin"
-                        onclick="selectCoin('binancecoin')"
-                        >BNB <span class="span">BNB/USD</span></a
-                      >
+                      href="/index"
+                      class="coin-name"
+                      data-coin="binancecoin"
+                      onclick="selectCoin('binancecoin')"
+                      >BNB <span class="span">BNB/USD</span></a
+                    >
                     </h3>
                   </div>
                 </td>
 
-                <td class="table-data last-price">$56,623.54</td>
+                <td class="table-data last-price">$595.75</td>
 
-                <td class="table-data last-update red">-3.75%%</td>
+                <td class="table-data last-update red">-1.3%</td>
 
-                <td class="table-data market-cap">$880,423,640,582</td>
+                <td class="table-data market-cap">$86,891,161,301</td>
 
                 <td class="table-data">
-                  <img
-                    src="./chart-2.svg"
-                    width="100"
-                    height="40"
-                    alt="loss chart"
-                    class="chart"
-                  />
+                  <img src="./chart-2.svg" width="100" height="40" alt="loss chart" class="chart">
                 </td>
 
                 <td class="table-data">
                   <button class="btn btn-outline">Trade</button>
                 </td>
+
               </tr>
 
               <tr class="table-row">
+
                 <td class="table-data">
-                  <button
-                    class="add-to-fav"
-                    aria-label="Add to favourite"
-                    data-add-to-fav
-                  >
-                    <ion-icon
-                      name="star-outline"
-                      aria-hidden="true"
-                      class="icon-outline"
-                    ></ion-icon>
-                    <ion-icon
-                      name="star"
-                      aria-hidden="true"
-                      class="icon-fill"
-                    ></ion-icon>
+                  <button class="add-to-fav" aria-label="Add to favourite" data-add-to-fav>
+                    <ion-icon name="star-outline" aria-hidden="true" class="icon-outline"></ion-icon>
+                    <ion-icon name="star" aria-hidden="true" class="icon-fill"></ion-icon>
                   </button>
                 </td>
 
@@ -490,64 +394,42 @@
 
                 <td class="table-data">
                   <div class="wrapper">
-                    <img
-                      src="./coin-5.svg"
-                      width="20"
-                      height="20"
-                      alt="Solana logo"
-                      class="img"
-                    />
+                    <img src="./coin-5.svg" width="20" height="20" alt="Solana logo" class="img">
 
                     <h3>
                       <a
-                        href="#"
-                        class="coin-name"
-                        data-coin="solana"
-                        onclick="selectCoin('solana')"
-                        >Solana <span class="span">SOL</span></a
-                      >
+                      href="/index"
+                      class="coin-name"
+                      data-coin="solana"
+                      onclick="selectCoin('solana')"
+                      >Solana <span class="span">SOL</span></a
+                    >
                     </h3>
                   </div>
                 </td>
 
-                <td class="table-data last-price">$56,623.54</td>
+                <td class="table-data last-price">$146.45</td>
 
                 <td class="table-data last-update green">+1.45%</td>
 
-                <td class="table-data market-cap">$880,423,640,582</td>
+                <td class="table-data market-cap">$75,732,065,154</td>
 
                 <td class="table-data">
-                  <img
-                    src="./chart-1.svg"
-                    width="100"
-                    height="40"
-                    alt="profit chart"
-                    class="chart"
-                  />
+                  <img src="./chart-1.svg" width="100" height="40" alt="profit chart" class="chart">
                 </td>
 
                 <td class="table-data">
                   <button class="btn btn-outline">Trade</button>
                 </td>
+
               </tr>
 
               <tr class="table-row">
+
                 <td class="table-data">
-                  <button
-                    class="add-to-fav"
-                    aria-label="Add to favourite"
-                    data-add-to-fav
-                  >
-                    <ion-icon
-                      name="star-outline"
-                      aria-hidden="true"
-                      class="icon-outline"
-                    ></ion-icon>
-                    <ion-icon
-                      name="star"
-                      aria-hidden="true"
-                      class="icon-fill"
-                    ></ion-icon>
+                  <button class="add-to-fav" aria-label="Add to favourite" data-add-to-fav>
+                    <ion-icon name="star-outline" aria-hidden="true" class="icon-outline"></ion-icon>
+                    <ion-icon name="star" aria-hidden="true" class="icon-fill"></ion-icon>
                   </button>
                 </td>
 
@@ -555,64 +437,42 @@
 
                 <td class="table-data">
                   <div class="wrapper">
-                    <img
-                      src="./coin-6.svg"
-                      width="20"
-                      height="20"
-                      alt="XRP logo"
-                      class="img"
-                    />
+                    <img src="./coin-6.svg" width="20" height="20" alt="XRP logo" class="img">
 
                     <h3>
                       <a
-                        href="#"
-                        class="coin-name"
-                        data-coin="ripple"
-                        onclick="selectCoin('ripple')"
-                        >XRP <span class="span">XRP</span></a
-                      >
+                      href="/index"
+                      class="coin-name"
+                      data-coin="ripple"
+                      onclick="selectCoin('ripple')"
+                      >XRP <span class="span">XRP</span></a
+                    >
                     </h3>
                   </div>
                 </td>
 
-                <td class="table-data last-price">$56,623.54</td>
+                <td class="table-data last-price">$2.14</td>
 
                 <td class="table-data last-update red">-2.22%</td>
 
-                <td class="table-data market-cap">$880,423,640,582</td>
+                <td class="table-data market-cap">$124,766,294,063</td>
 
                 <td class="table-data">
-                  <img
-                    src="./chart-2.svg"
-                    width="100"
-                    height="40"
-                    alt="loss chart"
-                    class="chart"
-                  />
+                  <img src="./chart-2.svg" width="100" height="40" alt="loss chart" class="chart">
                 </td>
 
                 <td class="table-data">
                   <button class="btn btn-outline">Trade</button>
                 </td>
+
               </tr>
 
               <tr class="table-row">
+
                 <td class="table-data">
-                  <button
-                    class="add-to-fav"
-                    aria-label="Add to favourite"
-                    data-add-to-fav
-                  >
-                    <ion-icon
-                      name="star-outline"
-                      aria-hidden="true"
-                      class="icon-outline"
-                    ></ion-icon>
-                    <ion-icon
-                      name="star"
-                      aria-hidden="true"
-                      class="icon-fill"
-                    ></ion-icon>
+                  <button class="add-to-fav" aria-label="Add to favourite" data-add-to-fav>
+                    <ion-icon name="star-outline" aria-hidden="true" class="icon-outline"></ion-icon>
+                    <ion-icon name="star" aria-hidden="true" class="icon-fill"></ion-icon>
                   </button>
                 </td>
 
@@ -620,64 +480,42 @@
 
                 <td class="table-data">
                   <div class="wrapper">
-                    <img
-                      src="./coin-7.svg"
-                      width="20"
-                      height="20"
-                      alt="Cardano logo"
-                      class="img"
-                    />
+                    <img src="./coin-7.svg" width="20" height="20" alt="Cardano logo" class="img">
 
                     <h3>
                       <a
-                        href="#"
-                        class="coin-name"
-                        data-coin="cardano"
-                        onclick="selectCoin('cardano')"
-                        >Cardano <span class="span">ADA</span></a
-                      >
+                      href="/index"
+                      class="coin-name"
+                      data-coin="cardano"
+                      onclick="selectCoin('cardano')"
+                      >Cardano <span class="span">ADA</span></a
+                    >
                     </h3>
                   </div>
                 </td>
 
-                <td class="table-data last-price">$56,623.54</td>
+                <td class="table-data last-price">$0.6747</td>
 
                 <td class="table-data last-update green">+0.8%</td>
 
-                <td class="table-data market-cap">$880,423,640,582</td>
+                <td class="table-data market-cap">$24,283,945,211</td>
 
                 <td class="table-data">
-                  <img
-                    src="./chart-1.svg"
-                    width="100"
-                    height="40"
-                    alt="profit chart"
-                    class="chart"
-                  />
+                  <img src="./chart-1.svg" width="100" height="40" alt="profit chart" class="chart">
                 </td>
 
                 <td class="table-data">
                   <button class="btn btn-outline">Trade</button>
                 </td>
+
               </tr>
 
               <tr class="table-row">
+
                 <td class="table-data">
-                  <button
-                    class="add-to-fav"
-                    aria-label="Add to favourite"
-                    data-add-to-fav
-                  >
-                    <ion-icon
-                      name="star-outline"
-                      aria-hidden="true"
-                      class="icon-outline"
-                    ></ion-icon>
-                    <ion-icon
-                      name="star"
-                      aria-hidden="true"
-                      class="icon-fill"
-                    ></ion-icon>
+                  <button class="add-to-fav" aria-label="Add to favourite" data-add-to-fav>
+                    <ion-icon name="star-outline" aria-hidden="true" class="icon-outline"></ion-icon>
+                    <ion-icon name="star" aria-hidden="true" class="icon-fill"></ion-icon>
                   </button>
                 </td>
 
@@ -685,307 +523,42 @@
 
                 <td class="table-data">
                   <div class="wrapper">
-                    <img
-                      src="./coin-8.svg"
-                      width="20"
-                      height="20"
-                      alt="Avalanche logo"
-                      class="img"
-                    />
+                    <img src="./coin-8.svg" width="20" height="20" alt="Avalanche logo" class="img">
 
                     <h3>
                       <a
-                        href="#"
-                        class="coin-name"
-                        data-coin="avalanche-2"
-                        onclick="selectCoin('avalanche-2')"
-                        >Avalanche <span class="span">AVAX</span></a
-                      >
+                      href="/index"
+                      class="coin-name"
+                      data-coin="avalanche-2"
+                      onclick="selectCoin('avalanche-2')"
+                      >Avalanche <span class="span">AVAX</span></a
+                    >
                     </h3>
                   </div>
                 </td>
 
-                <td class="table-data last-price">$56,623.54</td>
+                <td class="table-data last-price">$21.77</td>
 
                 <td class="table-data last-update green">+1.41%</td>
 
-                <td class="table-data market-cap">$880,423,640,582</td>
+                <td class="table-data market-cap">$9,056,615,674</td>
 
                 <td class="table-data">
-                  <img
-                    src="./chart-1.svg"
-                    width="100"
-                    height="40"
-                    alt="profit chart"
-                    class="chart"
-                  />
+                  <img src="./chart-1.svg" width="100" height="40" alt="profit chart" class="chart">
                 </td>
 
                 <td class="table-data">
                   <button class="btn btn-outline">Trade</button>
                 </td>
-              </tr>
-              <tr class="table-row">
-                <td class="table-data">
-                  <button
-                    class="add-to-fav"
-                    aria-label="Add to favourite"
-                    data-add-to-fav
-                  >
-                    <ion-icon
-                      name="star-outline"
-                      aria-hidden="true"
-                      class="icon-outline"
-                    ></ion-icon>
-                    <ion-icon
-                      name="star"
-                      aria-hidden="true"
-                      class="icon-fill"
-                    ></ion-icon>
-                  </button>
-                </td>
 
-                <th class="table-data rank" scope="row">9</th>
-
-                <td class="table-data">
-                  <div class="wrapper">
-                    <img
-                      src="./coin-9.svg"
-                      width="20"
-                      height="20"
-                      alt="Avalanche logo"
-                      class="img"
-                    />
-
-                    <h3>
-                      <a
-                        href="#"
-                        class="coin-name"
-                        data-coin="dogecoin"
-                        onclick="selectCoin('dogecoin')"
-                        >Dogecoin <span class="span">DOGE</span></a
-                      >
-                    </h3>
-                  </div>
-                </td>
-
-                <td class="table-data last-price">$56,623.54</td>
-
-                <td class="table-data last-update green">+1.41%</td>
-
-                <td class="table-data market-cap">$880,423,640,582</td>
-
-                <td class="table-data">
-                  <img
-                    src="./chart-1.svg"
-                    width="100"
-                    height="40"
-                    alt="profit chart"
-                    class="chart"
-                  />
-                </td>
-
-                <td class="table-data">
-                  <button class="btn btn-outline">Trade</button>
-                </td>
-              </tr>
-              <tr class="table-row">
-                <td class="table-data">
-                  <button
-                    class="add-to-fav"
-                    aria-label="Add to favourite"
-                    data-add-to-fav
-                  >
-                    <ion-icon
-                      name="star-outline"
-                      aria-hidden="true"
-                      class="icon-outline"
-                    ></ion-icon>
-                    <ion-icon
-                      name="star"
-                      aria-hidden="true"
-                      class="icon-fill"
-                    ></ion-icon>
-                  </button>
-                </td>
-
-                <th class="table-data rank" scope="row">10</th>
-
-                <td class="table-data">
-                  <div class="wrapper">
-                    <img
-                      src="./coin-10.svg"
-                      width="20"
-                      height="20"
-                      alt="Avalanche logo"
-                      class="img"
-                    />
-
-                    <h3>
-                      <a
-                        href="#"
-                        class="coin-name"
-                        data-coin="polkadot"
-                        onclick="selectCoin('polkadot')"
-                        >Polkadot <span class="span">DOT</span></a
-                      >
-                    </h3>
-                  </div>
-                </td>
-
-                <td class="table-data last-price">$56,623.54</td>
-
-                <td class="table-data last-update green">+1.41%</td>
-
-                <td class="table-data market-cap">$880,423,640,582</td>
-
-                <td class="table-data">
-                  <img
-                    src="./chart-1.svg"
-                    width="100"
-                    height="40"
-                    alt="profit chart"
-                    class="chart"
-                  />
-                </td>
-
-                <td class="table-data">
-                  <button class="btn btn-outline">Trade</button>
-                </td>
               </tr>
 
-              <tr class="table-row">
-                <td class="table-data">
-                  <button
-                    class="add-to-fav"
-                    aria-label="Add to favourite"
-                    data-add-to-fav
-                  >
-                    <ion-icon
-                      name="star-outline"
-                      aria-hidden="true"
-                      class="icon-outline"
-                    ></ion-icon>
-                    <ion-icon
-                      name="star"
-                      aria-hidden="true"
-                      class="icon-fill"
-                    ></ion-icon>
-                  </button>
-                </td>
-
-                <th class="table-data rank" scope="row">11</th>
-
-                <td class="table-data">
-                  <div class="wrapper">
-                    <img
-                      src="./coin-11.svg"
-                      width="20"
-                      height="20"
-                      alt="Avalanche logo"
-                      class="img"
-                    />
-
-                    <h3>
-                      <a
-                        href="#"
-                        class="coin-name"
-                        data-coin="litecoin"
-                        onclick="selectCoin('litecoin')"
-                        >Litecoin <span class="span">LTC</span></a
-                      >
-                    </h3>
-                  </div>
-                </td>
-
-                <td class="table-data last-price">$56,623.54</td>
-
-                <td class="table-data last-update green">+1.41%</td>
-
-                <td class="table-data market-cap">$880,423,640,582</td>
-
-                <td class="table-data">
-                  <img
-                    src="./chart-1.svg"
-                    width="100"
-                    height="40"
-                    alt="profit chart"
-                    class="chart"
-                  />
-                </td>
-
-                <td class="table-data">
-                  <button class="btn btn-outline">Trade</button>
-                </td>
-              </tr>
-
-              <tr class="table-row">
-                <td class="table-data">
-                  <button
-                    class="add-to-fav"
-                    aria-label="Add to favourite"
-                    data-add-to-fav
-                  >
-                    <ion-icon
-                      name="star-outline"
-                      aria-hidden="true"
-                      class="icon-outline"
-                    ></ion-icon>
-                    <ion-icon
-                      name="star"
-                      aria-hidden="true"
-                      class="icon-fill"
-                    ></ion-icon>
-                  </button>
-                </td>
-
-                <th class="table-data rank" scope="row">12</th>
-
-                <td class="table-data">
-                  <div class="wrapper">
-                    <img
-                      src="./coin-12.svg"
-                      width="20"
-                      height="20"
-                      alt="Avalanche logo"
-                      class="img"
-                    />
-
-                    <h3>
-                      <a
-                        href="#"
-                        class="coin-name"
-                        data-coin="decentraland"
-                        onclick="selectCoin('decentraland')"
-                        >Decentraland <span class="span">MANA</span></a
-                      >
-                    </h3>
-                  </div>
-                </td>
-
-                <td class="table-data last-price">$56,623.54</td>
-
-                <td class="table-data last-update green">+1.41%</td>
-
-                <td class="table-data market-cap">$880,423,640,582</td>
-
-                <td class="table-data">
-                  <img
-                    src="./chart-1.svg"
-                    width="100"
-                    height="40"
-                    alt="profit chart"
-                    class="chart"
-                  />
-                </td>
-
-                <td class="table-data">
-                  <button class="btn btn-outline">Trade</button>
-                </td>
-              </tr>
             </tbody>
+
           </table>
+
         </div>
+
       </div>
     </section>
 
