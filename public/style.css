@@ -63,19 +63,19 @@
 
 /* Light Mode (default) */  
 body {  
-    background-color: #c7b7b7;  
-    color: #2c2c2c;  
+    background-color: #414141;  
+    color: #3d3d3d;  
 }  
 
 /* Dark Mode */  
 body.dark-mode {  
-    background-color: #dadada;  
-    color: #b4b4b4;  
+    background-color: #ffffff;  
+    color: #000000;  
 }  
 
 /* Theme-specific element styles */  
 .dark-mode .card {  
-    background-color: #848484;  
+    background-color: #232323;  
     border-color: #555;  
 }  
 

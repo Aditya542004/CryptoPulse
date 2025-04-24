@@ -1,0 +1,375 @@
+.switch {
+    font-size: 17px;
+    position: relative;
+    display: inline-block;
+    width: 3.5em;
+    height: 2em;
+  }
+
+  /* Hide default HTML checkbox */
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+
+  /* The slider */
+  .slider {
+    --background: #28096b;
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--background);
+    transition: .5s;
+    border-radius: 30px;
+  }
+
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 1.4em;
+    width: 1.4em;
+    border-radius: 50%;
+    left: 10%;
+    bottom: 15%;
+    box-shadow: inset 8px -4px 0px 0px #fff000;
+    background: var(--background);
+    transition: .5s;
+  }
+
+  input:checked+.slider {
+    background-color: #522ba7;
+  }
+
+  input:checked+.slider:before {
+    transform: translateX(100%);
+    box-shadow: inset 15px -4px 0px 15px #fff000;
+  } 
+  
+  
+  
+
+  
+  
+  /* Base styles */  
+   body {  
+    transition: background-color 0.3s, color 0.3s;  
+}  
+
+/* Light Mode (default) */  
+body {  
+    background-color: #414141;  
+    color: #3d3d3d;  
+}  
+
+/* Dark Mode */  
+body.dark-mode {  
+    background-color: #ffffff;  
+    color: #000000;  
+}  
+
+/* Theme-specific element styles */  
+.dark-mode .card {  
+    background-color: #232323;  
+    border-color: #555;  
+}  
+
+.dark-mode .button {  
+    background-color: #666;  
+    color: #606060;  
+} 
+
+
+
+
+
+
+
+
+
+/* Reset and Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #0d0f1a;
+    color: #ffffff;
+    line-height: 1.6;
+  }
+  
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  ul {
+    list-style: none;
+  }
+  
+  img {
+    max-width: 100%;
+    display: block;
+  }
+  
+  /* .container {
+    padding-inline: 15px;
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+  } */
+  .header > .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  /* Header */
+  .header {
+    background-color: #1a1d2e;
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+  }
+  
+  /* .logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+  } */
+  .logo {
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  
+  .navbar {
+    display: flex;
+    gap: 2rem;
+  }
+  
+  .navbar-list {
+    display: flex;
+    gap: 2rem;
+  }
+  
+  .navbar-link {
+    color: #fff;
+    font-weight: 500;
+  }
+  
+  .navbar-link.active {
+    color: #e1b659;
+    border-bottom: 2px solid #e1b659;
+  }
+  
+  /* Hero Section */
+  .hero {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 2rem;
+    padding: 4rem 0;
+  }
+  
+  .hero-title {
+    font-size: 3rem;
+    color: #ca9af8;
+  }
+  
+  .hero-text {
+    font-size: 1.2rem;
+    color: #cfd2e3;
+    max-width: 600px;
+  }
+  
+  /* Section Base */
+  .section {
+    padding: 4rem 0;
+  }
+  
+  .section-title {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #ca9af8;
+  }
+  
+  .section-text {
+    margin-bottom: 2rem;
+    color: #aab2cf;
+  }
+  
+  /* About Content */
+  .about-content {
+    margin-top: 2rem;
+  }
+  
+  .section-list {
+    display: grid;
+    gap: 2rem;
+  }
+  
+  .title-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .h3 {
+    font-size: 1.25rem;
+    color: #e1b659;
+  }
+  
+  /* Instruction / Values Cards */
+  .instruction-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 2rem;
+  }
+  
+  .instruction-card {
+    background-color: #1e2135;
+    padding: 2rem;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  }
+  
+  /* Team Section */
+  .team-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+  
+  .team-member {
+    background-color: #1e2135;
+    border-radius: 12px;
+    padding: 1rem;
+    text-align: center;
+  }
+  
+  .team-img {
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    margin: auto;
+  }
+  
+  .team-name {
+    margin: 1rem 0 0.25rem;
+    color: #fff;
+  }
+  
+  .team-position {
+    color: #e1b659;
+  }
+  
+  .team-bio {
+    font-size: 0.9rem;
+    color: #aab2cf;
+  }
+  
+  /* Achievements Section */
+  .section-item {
+    margin-bottom: 1.5rem;
+  }
+  
+  .item-title {
+    font-size: 1.1rem;
+    color: #e1b659;
+  }
+  
+  /* Contact Section */
+  .contact-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+  
+  .contact-info, .social-connect {
+    flex: 1 1 300px;
+  }
+  
+  .contact-link {
+    color: #ca9af8;
+    display: block;
+    margin: 0.5rem 0;
+  }
+  
+  .social-list {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+  
+  .social-link ion-icon {
+    font-size: 1.5rem;
+    color: #ca9af8;
+  }
+  
+  /* CTA */
+  .cta-container {
+    margin-top: 3rem;
+    text-align: center;
+    
+  }
+
+  
+  .btn-primary {
+
+    background-color: #ca9af8;
+    color: #000;
+  
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: background 0.3s;
+  }
+  
+  .btn-primary:hover {
+    background-color: #b57eea;
+  }
+  
+  /* Footer */
+  .footer {
+    background-color: #1a1d2e;
+    color: #cfd2e3;
+    padding: 2rem 0;
+    text-align: center;
+  }
+  
+  .footer .footer-list {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin-bottom: 1rem;
+  }
+  
+  .footer .footer-item a {
+    color: #ca9af8;
+    font-weight: 500;
+    transition: color 0.3s;
+  }
+  
+  .footer .footer-item a:hover {
+    color: #e1b659;
+  }
+  

@@ -1,10 +1,12 @@
 const express = require("express");
 const app = express();
 const port = 3000;
-var request = require("request");
+const request = require("request");
+const NodeCache = require("node-cache");
+const cache = new NodeCache({ stdTTL: 60 }); // cache expires every 60 seconds
 
-var multer = require("multer");
-var upload = multer();
+const multer = require("multer");
+const upload = multer();
 
 const bodyParser = require("body-parser");
 app.use(bodyParser.json());
@@ -13,73 +15,111 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.set("view engine", "ejs");
 app.use(express.static("public"));
 app.use(upload.array());
+
 let data = "";
 let chart = "";
 let coinName = "bitcoin";
 
+
+
+
+
+
+
 async function resData(coinName) {
-  var marketData = await new Promise((resolve, reject) => {
-    request(
-      'https://api.coingecko.com/api/v3/coins/' + coinName,
-      function (error, response, body) {
-        console.error("Error fetching market data:", error); // Print the error if one occurred
+  const cachedData = cache.get(coinName);
+  if (cachedData && cachedData.data && cachedData.data.image) {
+    console.log("Using cached data for:", coinName);
+    data = cachedData.data;
+    chart = cachedData.chart;
+    return;
+  }
 
-        console.log("statusCode:", response && response.statusCode); // Print the response status code if a response was received
-        console.log("body:", typeof body); // Print the HTML for the Google homepage.
-        if (body) {
-          data = JSON.parse(body);
-        } else {
-          reject(new Error("No data received from API"));
-        }
-
-        console.log(data);
-        resolve(data);
+  // Fetch coin data
+  const marketData = await new Promise((resolve, reject) => {
+    request(`https://api.coingecko.com/api/v3/coins/${coinName}`, function (error, response, body) {
+      if (error || !body) return reject("Error fetching coin data");
+      try {
+        resolve(JSON.parse(body));
+      } catch (err) {
+        reject("Invalid JSON in market data");
       }
-    );
+    });
   });
 
-  if (marketData) {
-    var marketChart = await new Promise((resolve, reject) => {
-      request('https://api.coingecko.com/api/v3/coins/' + coinName + '/market_chart?vs_currency=usd&days=30', function (error, response, body) {
-        console.error('Error fetching market chart:', error);
-
-        console.log('statusCode:', response && response.statusCode);
-        console.log('body:', typeof body);
-        if (body) {
-          chart = JSON.parse(body);
-          
-        } else {
-          reject(new Error("No chart data received from API"));
-        }
-
-        resolve(data);
-      });
-    });
+  // Ensure structure is valid before continuing
+  if (!marketData || !marketData.image || !marketData.image.large) {
+    console.error("Invalid marketData structure:", marketData);
+    throw new Error("Invalid data from API (missing image info)");
   }
+
+  // Fetch chart data
+  const marketChart = await new Promise((resolve, reject) => {
+    request(`https://api.coingecko.com/api/v3/coins/${coinName}/market_chart?vs_currency=usd&days=30`, function (error, response, body) {
+      if (error || !body) return reject("Error fetching chart data");
+      try {
+        resolve(JSON.parse(body));
+      } catch (err) {
+        reject("Invalid JSON in market chart");
+      }
+    });
+  });
+
+  // Save to cache only if valid
+  cache.set(coinName, { data: marketData, chart: marketChart });
+
+  data = marketData;
+  chart = marketChart;
 }
 
-// Use app.get() for routing
+
+
+// Routes
 app.get("/", async function (req, res) {
-  await resData(coinName);
-  res.render("deshboard.ejs", { data });
+  try {
+    await resData(coinName);
+    res.render("deshboard.ejs", { data });
+  } catch (err) {
+    res.status(500).send("API error: " + err);
+  }
 });
 
-app.get('/index', async (req, res) => {
-  await resData(coinName);
-  res.render('index.ejs', { data, chart, coinName });
+app.get("/index", async (req, res) => {
+  try {
+    await resData(coinName);
+    res.render("index.ejs", { data, chart, coinName });
+  } catch (err) {
+    res.status(500).send("API error: " + err);
+  }
 });
 
 app.post("/index", async (req, res) => {
   coinName = req.body.selectCoin;
-  await resData(coinName);
-  res.render('index.ejs', { data,chart,coinName })
-})
+  try {
+    await resData(coinName);
+    res.render("index.ejs", { data, chart, coinName });
+  } catch (err) {
+    res.status(500).send("API error: " + err);
+  }
+});
 
 app.get("/about", (req, res) => {
   res.render("about.ejs");
 });
 
+const http = require("http");
 
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`);
+const server = http.createServer(app);
+
+server.listen(port, () => {
+  console.log(`CryptoPulse dashboard running on port ${port}`);
+});
+
+server.on("error", (error) => {
+  if (error.code === "EADDRINUSE") {
+    console.error(`Port ${port} is already in use. Please stop the process using this port or use a different port.`);
+    process.exit(1);
+  } else {
+    console.error("Server error:", error);
+  }
 });

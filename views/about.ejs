@@ -3,67 +3,16 @@
 
 <head>
   <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" href="./logo2.png" type="image/x-icon">
-  <title>CryptoPulse</title>
-  <link rel="stylesheet" href="./style.css">
+  <title>About Us - CryptoPulse</title>
+  <link rel="stylesheet" href="./style2.css">
+
 </head>
-<style>
-  /* From Uiverse.io by alexruix */
-  /* The switch - the box around the slider */
-  .switch {
-    font-size: 17px;
-    position: relative;
-    display: inline-block;
-    width: 3.5em;
-    height: 2em;
-  }
 
-  /* Hide default HTML checkbox */
-  .switch input {
-    opacity: 0;
-    width: 0;
-    height: 0;
-  }
-
-  /* The slider */
-  .slider {
-    --background: #28096b;
-    position: absolute;
-    cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: var(--background);
-    transition: .5s;
-    border-radius: 30px;
-  }
-
-  .slider:before {
-    position: absolute;
-    content: "";
-    height: 1.4em;
-    width: 1.4em;
-    border-radius: 50%;
-    left: 10%;
-    bottom: 15%;
-    box-shadow: inset 8px -4px 0px 0px #fff000;
-    background: var(--background);
-    transition: .5s;
-  }
-
-  input:checked+.slider {
-    background-color: #522ba7;
-  }
-
-  input:checked+.slider:before {
-    transform: translateX(100%);
-    box-shadow: inset 15px -4px 0px 15px #fff000;
-  }
-</style>
 <body>
-
+  <!-- HEADER -->
   <header class="header" data-header>
     <div class="container">
       <a href="/" class="logo">
@@ -76,7 +25,7 @@
             <a href="/index" class="navbar-link" data-nav-link>Cryptocurrency</a>
           </li>
           <li class="navbar-item">
-            <a href="/about" class="navbar-link" data-nav-link>About us</a>
+            <a href="/about" class="navbar-link active" data-nav-link>About us</a>
           </li>
         </ul>
       </nav>
@@ -91,8 +40,295 @@
       </label>
     </div>
   </header>
-   
-  <!-- - #FOOTER-->
+
+  <main>
+    <article>
+      <!-- HERO SECTION -->
+      <section class="section hero" aria-label="hero" data-section>
+        <div class="container">
+          <div class="hero-content">
+            <h1 class="h1 hero-title">About CryptoPulse</h1>
+            <p class="hero-text">
+              Empowering individuals worldwide with innovative blockchain solutions and secure cryptocurrency trading.
+            </p>
+          </div>
+          <!-- <figure class="hero-banner">
+            <img src="" width="570" height="448" alt="About us banner" class="w-100">
+          </figure> -->
+        </div>
+      </section>
+
+      <!-- OUR STORY SECTION -->
+      <section class="section about" aria-label="our story" data-section>
+        <div class="container">
+          <figure class="about-banner">
+            <img src="https://pbs.twimg.com/media/EoPOucPWMAQ7YRh.jpg:large" width="1500" height="536" loading="lazy" alt="our story" class="w-100">
+          </figure>
+
+          <div class="about-content">
+            <h2 class="h2 section-title">Our Story</h2>
+
+            <p class="section-text">
+              Founded in 2021, CryptoPulse began with a simple mission: make cryptocurrency accessible to everyone.
+              What started as a small team of blockchain enthusiasts has grown into a global platform serving traders
+              in over 100 countries.
+            </p>
+
+            <ul class="section-list">
+              <li class="section-item">
+                <div class="title-wrapper">
+                  <ion-icon name="checkmark-circle" aria-hidden="true"></ion-icon>
+                  <h3 class="h3 list-title">Innovation at Our Core</h3>
+                </div>
+                <p class="item-text">
+                  We continuously evolve our platform with cutting-edge technology to provide the most secure and
+                  efficient trading experience. Our team of developers works tirelessly to implement the latest
+                  blockchain innovations.
+                </p>
+              </li>
+
+              <li class="section-item">
+                <div class="title-wrapper">
+                  <ion-icon name="checkmark-circle" aria-hidden="true"></ion-icon>
+                  <h3 class="h3 list-title">Community-Driven Development</h3>
+                </div>
+                <p class="item-text">
+                  Our growth has been guided by our vibrant community of users. We listen to feedback and implement
+                  features that matter most to our users, creating a platform that truly serves those who use it.
+                </p>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- OUR VALUES SECTION -->
+      <section class="section instruction" aria-label="our values" data-section>
+        <div class="container">
+          <h2 class="h2 section-title">Our Values</h2>
+          <p class="section-text">
+            These core principles guide everything we do at CryptoPulse and shape our approach to cryptocurrency
+            trading.
+          </p>
+
+          <ul class="instruction-list">
+            <li>
+              <div class="instruction-card">
+                <figure class="card-banner">
+                  <img src="./value-security.png" width="96" height="96" loading="lazy" alt="Security" class="img">
+                </figure>
+                <h3 class="h3 card-title">Security</h3>
+                <p class="card-text">
+                  Your assets' safety is our top priority. We employ industry-leading security measures including
+                  multi-signature wallets, cold storage, and regular security audits.
+                </p>
+              </div>
+            </li>
+
+            <li>
+              <div class="instruction-card">
+                <figure class="card-banner">
+                  <img src="./value-transparency.png" width="96" height="96" loading="lazy" alt="Transparency"
+                    class="img">
+                </figure>
+                <h3 class="h3 card-title">Transparency</h3>
+                <p class="card-text">
+                  We believe in complete transparency in all operations. Our fee structure, trading policies, and
+                  security protocols are always openly communicated.
+                </p>
+              </div>
+            </li>
+
+            <li>
+              <div class="instruction-card">
+                <figure class="card-banner">
+                  <img src="./value-accessibility.png" width="96" height="96" loading="lazy" alt="Accessibility"
+                    class="img">
+                </figure>
+                <h3 class="h3 card-title">Accessibility</h3>
+                <p class="card-text">
+                  Cryptocurrency should be accessible to everyone. We design our platform to be intuitive for beginners
+                  while offering advanced tools for experienced traders.
+                </p>
+              </div>
+            </li>
+
+            <li>
+              <div class="instruction-card">
+                <figure class="card-banner">
+                  <img src="./value-innovation.png" width="96" height="96" loading="lazy" alt="Innovation" class="img">
+                </figure>
+                <h3 class="h3 card-title">Innovation</h3>
+                <p class="card-text">
+                  We continuously push the boundaries of what's possible in cryptocurrency trading, implementing new
+                  technologies and features to enhance the user experience.
+                </p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- MEET OUR TEAM SECTION -->
+      <section class="section about" aria-label="team" data-section>
+        <div class="container">
+          <h2 class="h2 section-title">Meet Our Team</h2>
+          <p class="section-text">
+            Our diverse team of experts is dedicated to building the future of cryptocurrency trading.
+          </p>
+
+          <div class="team-container">
+            <div class="team-member">
+              <img src="../public/WhatsApp_Image_2025-04-06_at_20.26.28_d5f40e41-removebg-preview.png" width="100" height="100"  class="team-img">
+              <h3 class="h3 team-name">Aditya agarwal</h3>
+              <p class="team-position">CEO & Co-founder</p>
+              <p class="team-bio">Blockchain pioneer with 10+ years in fintech. Previously led innovation at BlockTech.
+              </p>
+            </div>
+
+            <div class="team-member">
+              <img src="../public/abhishekk.png" class="team-img">
+              <h3 class="h3 team-name">Abhishek goswami</h3>
+              <p class="team-position">Developer</p>
+              <p class="team-bio">Development with background in blockchain. Former lead developer at CryptoSafe.
+              </p>
+            </div>
+
+            <div class="team-member">
+              <img src="./team-3.jpg" alt="Maya Patel" class="team-img">
+              <h3 class="h3 team-name">krishna sharma</h3>
+              <p class="team-position">Agile Expert</p>
+              <p class="team-bio">Agile specialist focused on creating intuitive trading experiences for all skill levels.
+              </p>
+            </div>
+
+            <div class="team-member">
+              <img src="./team-4.jpg" alt="James Wilson" class="team-img">
+              <h3 class="h3 team-name">Aditya farshiya</h3>
+              <p class="team-position">AR & VR</p>
+              <p class="team-bio">AR with expertise in protecting high-value digital assets.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- OUR ACHIEVEMENTS SECTION -->
+      <section class="section app" aria-label="achievements" data-section>
+        <div class="container">
+          <div class="app-content">
+            <h2 class="h2 section-title">Our Achievements</h2>
+            <p class="section-text">
+              Since our founding, we've hit significant milestones that showcase our commitment to excellence in
+              cryptocurrency trading.
+            </p>
+
+            <ul class="section-list">
+              <li class="section-item">
+                <div class="title-wrapper">
+                  <ion-icon name="trophy" aria-hidden="true"></ion-icon>
+                  <h3 class="h3 item-title">2M+ Active Users Worldwide</h3>
+                </div>
+                <p class="item-text">
+                  Growing community of traders who trust our platform for their cryptocurrency investments.
+                </p>
+              </li>
+
+              <li class="section-item">
+                <div class="title-wrapper">
+                  <ion-icon name="trophy" aria-hidden="true"></ion-icon>
+                  <h3 class="h3 item-title">$10B+ Monthly Trading Volume</h3>
+                </div>
+                <p class="item-text">
+                  Significant trading activity demonstrating the liquidity and reliability of our platform.
+                </p>
+              </li>
+
+              <li class="section-item">
+                <div class="title-wrapper">
+                  <ion-icon name="trophy" aria-hidden="true"></ion-icon>
+                  <h3 class="h3 item-title">99.99% Uptime Guarantee</h3>
+                </div>
+                <p class="item-text">
+                  Technical excellence ensuring our platform is available when you need it most.
+                </p>
+              </li>
+
+              <li class="section-item">
+                <div class="title-wrapper">
+                  <ion-icon name="trophy" aria-hidden="true"></ion-icon>
+                  <h3 class="h3 item-title">"Best Crypto Exchange" Award 2024</h3>
+                </div>
+                <p class="item-text">
+                  Recognized by Blockchain Industry Awards for our innovative trading platform.
+                </p>
+              </li>
+            </ul>
+          </div>
+
+          <div class="app-banner">
+            <img src="https://www.investopedia.com/thmb/D7vN6oeU0WCLU87DX9kEHi0efUM=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/image033-5bfd713546e0fb0051f844ba" width="818" height="526" loading="lazy" alt="achievements" class="w-100">
+          </div>
+        </div>
+      </section>
+
+      <!-- JOIN US SECTION -->
+      <section class="section instruction contact" aria-label="contact" data-section>
+        <div class="container">
+          <h2 class="h2 section-title">Join Our Journey</h2>
+          <p class="section-text">
+            Be part of the cryptocurrency revolution with CryptoPulse. Whether you're a trader, developer, or blockchain
+            enthusiast, there's a place for you in our community.
+          </p>
+
+          <div class="contact-container">
+            <div class="contact-info">
+              <h3 class="h3">Get In Touch</h3>
+              <p>Have questions or want to learn more about CryptoPulse? Our team is here to help.</p>
+              <ul class="contact-list">
+                <li class="contact-item">
+                  <ion-icon name="mail-outline" aria-hidden="true"></ion-icon>
+                  <a href="mailto:info@cryptopulse.com" class="contact-link">info@cryptopulse.com</a>
+                </li>
+                <li class="contact-item">
+                  <ion-icon name="call-outline" aria-hidden="true"></ion-icon>
+                  <a href="tel:+12345678910" class="contact-link">+1 (234) 567-8910</a>
+                </li>
+                <li class="contact-item">
+                  <ion-icon name="location-outline" aria-hidden="true"></ion-icon>
+                  <address class="contact-link">123 Blockchain Avenue, Crypto City, CC 10101</address>
+                </li>
+              </ul>
+            </div>
+
+            <div class="social-connect">
+              <h3 class="h3">Connect With Us</h3>
+              <p>Follow us on social media for the latest updates, educational content, and community events.</p>
+              <ul class="social-list">
+                <li><a href="#" class="social-link"><ion-icon name="logo-twitter"></ion-icon></a></li>
+                <li><a href="#" class="social-link"><ion-icon name="logo-linkedin"></ion-icon></a></li>
+                <li><a href="#" class="social-link"><ion-icon name="logo-instagram"></ion-icon></a></li>
+                <li><a href="#" class="social-link"><ion-icon name="logo-youtube"></ion-icon></a></li>
+                <li><a href="#" class="social-link"><ion-icon name="logo-discord"></ion-icon></a></li>
+              </ul>
+            </div>
+          </div>
+
+
+
+        </div>
+        <div class="cta-container">
+          <h3 class="h3">Ready to Start Trading?</h3>
+          <p>Create an account and begin your cryptocurrency journey today.</p>
+          <p>.</p>
+          <a href="/index" class="btn btn-primary">Get Started Now</a>
+        </div>
+
+        </div>
+      </section>
+    </article>
+  </main>
+
+  <!-- FOOTER -->
   <footer class="footer">
     <div class="footer-top" data-section>
       <div class="container">
@@ -101,13 +337,15 @@
             <img src="./logo2.png" width="32" height="32" alt="CryptoPulse logo">
             <span style="color:rgb(202, 154, 248);">Crypto</span><span style="color:rgb(225, 182, 89);">Pulse</span>
           </a>
+
           <h2 class="footer-title">Let's talk! 🤙</h2>
-          <a href="tel:+123456789101" class="footer-contact-link">+12 345 678 9101</a>
+          <a href="tel:+123456789101" class="footer-contact-link">233566762222</a>
           <a href="mailto:hello.cryptex@gmail.com" class="footer-contact-link">hello.cryptex@gmail.com</a>
           <address class="footer-contact-link">
-            Cecilia Chapman 711-2880 Nulla St. Mankato Mississippi 96522
+            gla university mathura 281406,
           </address>
         </div>
+
         <ul class="footer-list">
           <li>
             <p class="footer-list-title">Products</p>
@@ -131,6 +369,7 @@
             <a href="#" class="footer-link">Binance Pay</a>
           </li>
         </ul>
+
         <ul class="footer-list">
           <li>
             <p class="footer-list-title">Services</p>
@@ -154,6 +393,7 @@
             <a href="#" class="footer-link">API</a>
           </li>
         </ul>
+
         <ul class="footer-list">
           <li>
             <p class="footer-list-title">Support</p>
@@ -177,6 +417,7 @@
             <a href="#" class="footer-link">Trading Rules</a>
           </li>
         </ul>
+
         <ul class="footer-list">
           <li>
             <p class="footer-list-title">About Us</p>
@@ -200,6 +441,10 @@
       </div>
     </div>
   </footer>
+
+  <script src="./script.js"></script>
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </body>
 
 </html>
